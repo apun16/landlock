@@ -4,7 +4,6 @@ from .budget_analyst import BudgetAnalyst
 from .policy_analyst import PolicyAnalyst
 from .underwriter import Underwriter
 
-# CrewAI implementations (with fallback to deterministic)
 try:
     from .crew_agents import (
         create_budget_analyst_agent,

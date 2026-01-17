@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
 """Basic test script to verify backend works without full dependencies"""
 import sys
 from pathlib import Path
 
-# Add backend to path
 sys.path.insert(0, str(Path(__file__).parent))
 
 def test_imports():
@@ -59,7 +57,6 @@ def test_models():
         from backend.models.discovered_source import DiscoveredSource, SourceCategory, DocumentType
         from backend.models.extracted_fact import ExtractedFact, FactType
         
-        # Test Citation
         citation = Citation(
             id="cite_001",
             title="Test Source",
@@ -68,7 +65,6 @@ def test_models():
         assert citation.id == "cite_001"
         print("✓ Citation model works")
         
-        # Test DiscoveredSource
         source = DiscoveredSource(
             title="Test",
             uri="https://example.com",
@@ -78,7 +74,6 @@ def test_models():
         assert source.category == SourceCategory.BUDGET
         print("✓ DiscoveredSource model works")
         
-        # Test ExtractedFact with citation
         fact = ExtractedFact(
             id="fact_001",
             region_id="test",
@@ -90,7 +85,6 @@ def test_models():
         fact.model_validate_citations()  # Should not raise
         print("✓ ExtractedFact with citations works")
         
-        # Test ExtractedFact without citation should raise
         fact_no_cite = ExtractedFact(
             id="fact_002",
             region_id="test",
@@ -125,14 +119,12 @@ def test_agents():
         from backend.models.extracted_fact import ExtractedFact, FactType
         from backend.models.citation import Citation
         
-        # Test BudgetAnalyst
         analyst = BudgetAnalyst()
         output = analyst.analyze([], [])
         assert output.funding_strength_score is None
         assert output.confidence == 0.0
         print("✓ BudgetAnalyst works (empty input)")
         
-        # Test with facts
         citation = Citation(id="cite_001", title="Test", uri="https://example.com")
         facts = [
             ExtractedFact(
@@ -148,13 +140,11 @@ def test_agents():
         assert output.evidence_count == 1
         print("✓ BudgetAnalyst works (with facts)")
         
-        # Test PolicyAnalyst
         policy_analyst = PolicyAnalyst()
         output = policy_analyst.analyze([], [])
         assert output.zoning_flexibility_score is None
         print("✓ PolicyAnalyst works")
         
-        # Test Underwriter
         underwriter = Underwriter()
         from backend.models.agent_outputs import BudgetAnalystOutput, PolicyAnalystOutput
         

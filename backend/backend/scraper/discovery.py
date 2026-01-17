@@ -250,3 +250,192 @@ class SourceDiscovery:
         parsed = urlparse(url)
         filename = unquote(parsed.path.split("/")[-1])
         return filename.replace(".pdf", "").replace("_", " ").title()
+    
+    def _discover_from_rss(self, url: str, category: SourceCategory) -> List[DiscoveredSource]:
+        """Discover sources from RSS feed"""
+        sources: List[DiscoveredSource] = []
+        
+        if not FEEDPARSER_AVAILABLE:
+            return sources
+        
+        try:
+            time.sleep(self.settings.scrape_rate_limit_seconds)
+            feed = feedparser.parse(url)
+            
+            # Each entry in the feed becomes a source
+            for entry in feed.entries[:20]:  # Limit to 20 entries
+                entry_url = entry.get("link", "")
+                if entry_url and entry_url not in self.visited_urls:
+                    source = DiscoveredSource(
+                        title=entry.get("title", "RSS Entry"),
+                        uri=entry_url,
+                        category=category,
+                        document_type=DocumentType.RSS,
+                    )
+                    sources.append(source)
+                    self.visited_urls.add(entry_url)
+        except Exception as e:
+            print(f"Error parsing RSS feed {url}: {e}")
+        
+        return sources
+    
+    def _discover_arcgis_portals(
+        self,
+        soup: BeautifulSoup,
+        current_url: str,
+        category: SourceCategory
+    ) -> List[DiscoveredSource]:
+        """Discover ArcGIS portal links for zoning maps"""
+        sources: List[DiscoveredSource] = []
+        
+        if category != SourceCategory.ZONING:
+            return sources
+        
+        # Look for ArcGIS portal links
+        arcgis_patterns = [
+            r'arcgis\.com',
+            r'arcgis.*map',
+            r'arcgis.*zoning',
+            r'geoportal',
+        ]
+        
+        # Check all links
+        for link in soup.find_all("a", href=True):
+            href = link.get("href", "")
+            href_lower = href.lower()
+            
+            # Check if it matches ArcGIS patterns
+            if any(re.search(pattern, href_lower, re.IGNORECASE) for pattern in arcgis_patterns):
+                full_url = urljoin(current_url, href)
+                
+                if full_url not in self.visited_urls:
+                    source = DiscoveredSource(
+                        title=link.get_text().strip() or "ArcGIS Portal",
+                        uri=full_url,
+                        category=category,
+                        document_type=DocumentType.HTML,  # ArcGIS portals are web apps
+                    )
+                    sources.append(source)
+                    self.visited_urls.add(full_url)
+        
+        # Also check for embedded ArcGIS iframes
+        for iframe in soup.find_all("iframe", src=True):
+            src = iframe.get("src", "")
+            if "arcgis" in src.lower():
+                full_url = urljoin(current_url, src)
+                if full_url not in self.visited_urls:
+                    source = DiscoveredSource(
+                        title="ArcGIS Embedded Map",
+                        uri=full_url,
+                        category=category,
+                        document_type=DocumentType.HTML,
+                    )
+                    sources.append(source)
+                    self.visited_urls.add(full_url)
+        
+        return sources
+    
+    def _discover_api_endpoints(
+        self,
+        url: str,
+        category: SourceCategory
+    ) -> List[DiscoveredSource]:
+        """Discover API endpoints from a JSON response"""
+        sources: List[DiscoveredSource] = []
+        
+        try:
+            time.sleep(self.settings.scrape_rate_limit_seconds)
+            resp = requests.get(
+                url,
+                timeout=self.settings.scrape_timeout_seconds,
+                headers={"User-Agent": "LandlockBot/1.0", "Accept": "application/json"}
+            )
+            resp.raise_for_status()
+            
+            data = resp.json()
+            
+            # Look for API endpoints in JSON response
+            if isinstance(data, dict):
+                # Check for common API patterns
+                for key, value in data.items():
+                    if isinstance(value, str) and (value.startswith("http") or value.startswith("/api")):
+                        full_url = urljoin(url, value)
+                        if full_url not in self.visited_urls:
+                            source = DiscoveredSource(
+                                title=f"API Endpoint: {key}",
+                                uri=full_url,
+                                category=category,
+                                document_type=DocumentType.API,
+                            )
+                            sources.append(source)
+                            self.visited_urls.add(full_url)
+        except Exception as e:
+            print(f"Error discovering API endpoints from {url}: {e}")
+        
+        return sources
+    
+    def _discover_api_endpoints_from_html(
+        self,
+        soup: BeautifulSoup,
+        current_url: str,
+        category: SourceCategory
+    ) -> List[DiscoveredSource]:
+        """Discover API endpoints from HTML page"""
+        sources: List[DiscoveredSource] = []
+        
+        # Look for links to API endpoints
+        api_patterns = [
+            r'/api/',
+            r'api\.',
+            r'\.json',
+            r'endpoint',
+            r'json$',
+        ]
+        
+        for link in soup.find_all("a", href=True):
+            href = link.get("href", "")
+            href_lower = href.lower()
+            
+            if any(re.search(pattern, href_lower, re.IGNORECASE) for pattern in api_patterns):
+                full_url = urljoin(current_url, href)
+                
+                if full_url not in self.visited_urls:
+                    source = DiscoveredSource(
+                        title=link.get_text().strip() or "API Endpoint",
+                        uri=full_url,
+                        category=category,
+                        document_type=DocumentType.API,
+                    )
+                    sources.append(source)
+                    self.visited_urls.add(full_url)
+        
+        # Look for API endpoints in script tags
+        for script in soup.find_all("script"):
+            script_text = script.string or ""
+            # Look for API URLs in JavaScript
+            api_urls = re.findall(r'["\'](https?://[^"\']*api[^"\']*)["\']', script_text, re.IGNORECASE)
+            for api_url in api_urls:
+                if api_url not in self.visited_urls:
+                    source = DiscoveredSource(
+                        title="API Endpoint (from script)",
+                        uri=api_url,
+                        category=category,
+                        document_type=DocumentType.API,
+                    )
+                    sources.append(source)
+                    self.visited_urls.add(api_url)
+        
+        return sources
+    
+    def _extract_title_from_api_url(self, url: str) -> str:
+        """Extract a title from an API URL"""
+        from urllib.parse import unquote
+        parsed = urlparse(url)
+        path_parts = parsed.path.strip("/").split("/")
+        
+        # Try to extract meaningful name from path
+        if len(path_parts) > 0:
+            last_part = unquote(path_parts[-1])
+            return last_part.replace(".json", "").replace("_", " ").title()
+        
+        return "API Endpoint"

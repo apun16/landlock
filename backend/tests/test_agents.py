@@ -141,5 +141,4 @@ def test_underwriter_requires_citations():
     assert output.plan_variant in ["A", "B", "C", "unknown"]
     assert len(output.citation_ids) > 0
     
-    # Validate pros/cons have required fields
-    output.validate_pros_cons()  # Should not raise
+    output.validate_pros_cons()

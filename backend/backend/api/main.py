@@ -15,16 +15,14 @@ app = FastAPI(
     version="0.1.0"
 )
 
-# CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure as needed
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Initialize settings and runner
 settings = Settings()
 runner = PipelineRunner(settings)
 
@@ -74,14 +72,12 @@ async def analyze_region(request: RegionRequest) -> RegionPanelOutput:
         RegionPanelOutput with analysis results
     """
     try:
-        # Convert string keys to SourceCategory enum
         entry_points = {}
         for key, urls in request.known_entry_points.items():
             try:
                 category = SourceCategory(key.upper())
                 entry_points[category] = urls
             except ValueError:
-                # Skip invalid categories
                 continue
         
         output = runner.run_pipeline(

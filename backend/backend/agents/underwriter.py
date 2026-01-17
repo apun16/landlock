@@ -47,7 +47,6 @@ class Underwriter:
         if score_components:
             feasibility_score = int(sum(score_components))
         
-        # Determine verdict
         verdict: Literal["go", "caution", "avoid", "unknown"] = "unknown"
         
         if feasibility_score is not None:
@@ -58,15 +57,13 @@ class Underwriter:
             else:
                 verdict = "avoid"
         else:
-            # If we don't have enough data
             if budget_output.evidence_count == 0 and policy_output.evidence_count == 0:
                 verdict = "unknown"
             elif budget_output.evidence_count > 0 and policy_output.evidence_count == 0:
-                verdict = "caution"  # Partial data
+                verdict = "caution"
             else:
                 verdict = "caution"
         
-        # Determine plan variant
         plan_variant: Literal["A", "B", "C", "unknown"] = "unknown"
         if verdict == "go":
             plan_variant = "A"
@@ -75,7 +72,6 @@ class Underwriter:
         elif verdict == "avoid":
             plan_variant = "C"
         
-        # Build pros, cons, constraints with citations
         pros = []
         cons = []
         constraints = []
@@ -83,7 +79,6 @@ class Underwriter:
         used_citation_ids = set()
         used_fact_ids = set()
         
-        # Pros from budget
         if budget_output.funding_strength_score and budget_output.funding_strength_score >= 60:
             budget_facts = [f for f in facts if f.fact_type == FactType.BUDGET and f.citation_ids]
             if budget_facts:
@@ -100,7 +95,6 @@ class Underwriter:
                 used_fact_ids.update(fact_ids)
                 used_citation_ids.update(cite_ids)
         
-        # Pros from policy
         if policy_output.zoning_flexibility_score and policy_output.zoning_flexibility_score >= 60:
             zoning_facts = [f for f in facts if f.fact_type == FactType.ZONING and f.citation_ids]
             if zoning_facts:
@@ -117,7 +111,6 @@ class Underwriter:
                 used_fact_ids.update(fact_ids)
                 used_citation_ids.update(cite_ids)
         
-        # Cons from budget
         if budget_output.funding_strength_score and budget_output.funding_strength_score < 40:
             budget_facts = [f for f in facts if f.fact_type == FactType.BUDGET and f.citation_ids]
             if budget_facts:
@@ -134,7 +127,6 @@ class Underwriter:
                 used_fact_ids.update(fact_ids)
                 used_citation_ids.update(cite_ids)
         
-        # Cons from policy friction
         if policy_output.approval_friction_factors:
             proposal_facts = [f for f in facts if f.fact_type == FactType.PROPOSAL and f.citation_ids]
             if proposal_facts:
@@ -151,7 +143,6 @@ class Underwriter:
                 used_fact_ids.update(fact_ids)
                 used_citation_ids.update(cite_ids)
         
-        # Constraints from policy
         if policy_output.constraints:
             zoning_facts = [f for f in facts if f.fact_type == FactType.ZONING and f.citation_ids]
             if zoning_facts:
@@ -168,11 +159,9 @@ class Underwriter:
                 used_fact_ids.update(fact_ids)
                 used_citation_ids.update(cite_ids)
         
-        # Confidence based on evidence
         total_evidence = budget_output.evidence_count + policy_output.evidence_count
         confidence = min(total_evidence / 10.0, 1.0) if total_evidence > 0 else 0.0
         
-        # All citations used
         used_citation_ids.update(budget_output.citation_ids)
         used_citation_ids.update(policy_output.citation_ids)
         

@@ -1,5 +1,6 @@
 """Unified CrewAI Production Crew - all agents working together"""
-from typing import List, Optional
+from __future__ import annotations
+from typing import List, Optional, Any
 import json
 
 from backend.models.extracted_fact import ExtractedFact, FactType
@@ -18,6 +19,10 @@ try:
     CREWAI_AVAILABLE = True
 except ImportError:
     CREWAI_AVAILABLE = False
+    Agent = None
+    Task = None
+    Crew = None
+    ChatOpenAI = None
 
 from backend.agents.shared_state import SharedStateManager, LANGGRAPH_AVAILABLE
 
@@ -27,14 +32,13 @@ def create_production_crew(
     citations: List[Citation],
     settings: Settings,
     region_id: str,
-) -> Optional[Crew]:
+) -> Optional[Any]:
     """Create unified production crew with all agents working together"""
     if not CREWAI_AVAILABLE or not settings.use_llm_mode or not settings.openai_api_key:
         return None
     
     llm = ChatOpenAI(model="gpt-4", temperature=0, api_key=settings.openai_api_key)
     
-    # Create all agents
     budget_agent = Agent(
         role="Budget Analyst",
         goal="Analyze budget facts and determine funding strength score (0-100)",
@@ -61,18 +65,16 @@ def create_production_crew(
         backstory="""You are an expert underwriter. You must provide pros/cons/constraints with 
         specific fact IDs and citations. Your analysis must be based ONLY on provided facts.""",
         verbose=True,
-        allow_delegation=True,  # Can delegate to other agents if needed
+        allow_delegation=True,
         llm=llm,
     )
     
-    # Prepare context
     budget_facts = [f for f in facts if f.fact_type == FactType.BUDGET]
     zoning_facts = [f for f in facts if f.fact_type == FactType.ZONING]
     proposal_facts = [f for f in facts if f.fact_type == FactType.PROPOSAL]
     all_facts_json = json.dumps([f.model_dump() for f in facts], default=str)
     citations_json = json.dumps([c.model_dump() for c in citations], default=str)
     
-    # Task 1: Budget Analysis
     budget_task = Task(
         description=f"""Analyze the following budget facts and produce a BudgetAnalystOutput in JSON format.
 
@@ -94,7 +96,6 @@ Requirements:
         expected_output="JSON object matching BudgetAnalystOutput schema",
     )
     
-    # Task 2: Policy Analysis
     policy_task = Task(
         description=f"""Analyze the following zoning and proposal facts and produce a PolicyAnalystOutput in JSON format.
 
@@ -119,10 +120,9 @@ Requirements:
 9. You MUST only use facts provided - do not invent data""",
         agent=policy_agent,
         expected_output="JSON object matching PolicyAnalystOutput schema",
-        context=[budget_task],  # Has access to budget analysis
+        context=[budget_task], 
     )
     
-    # Task 3: Underwriter Analysis (depends on budget and policy)
     underwriter_task = Task(
         description=f"""Evaluate development feasibility based on budget and policy analysis.
 
@@ -149,15 +149,14 @@ Requirements:
 12. EVERY pro/con/constraint MUST reference specific fact IDs and citation IDs""",
         agent=underwriter_agent,
         expected_output="JSON object matching UnderwriterOutput schema",
-        context=[budget_task, policy_task],  # Has access to both analyses
+        context=[budget_task, policy_task], 
     )
     
-    # Create unified crew
     crew = Crew(
         agents=[budget_agent, policy_agent, underwriter_agent],
         tasks=[budget_task, policy_task, underwriter_task],
         verbose=True,
-        process="sequential",  # Sequential execution with shared context
+        process="sequential", 
     )
     
     return crew
@@ -171,7 +170,6 @@ def run_production_crew(
 ) -> RegionPanelOutput:
     """Run unified production crew with LangGraph shared state and return RegionPanelOutput"""
     if not CREWAI_AVAILABLE or not settings.use_llm_mode or not settings.openai_api_key:
-        # Fallback to deterministic
         from backend.agents.budget_analyst import BudgetAnalyst
         from backend.agents.policy_analyst import PolicyAnalyst
         from backend.agents.underwriter import Underwriter
@@ -198,7 +196,6 @@ def run_production_crew(
             generated_at=datetime.utcnow().isoformat(),
         )
     
-    # Initialize shared state manager (LangGraph integration)
     state_manager = SharedStateManager()
     state_manager.initialize_state(region_id, facts, citations)
     
@@ -208,8 +205,6 @@ def run_production_crew(
     
     result = crew.kickoff()
     
-    # Parse results from crew output
-    # The crew returns a structured result with all task outputs
     budget_output = None
     policy_output = None
     underwriter_output = None
@@ -217,8 +212,6 @@ def run_production_crew(
     try:
         result_str = str(result)
         
-        # Try to extract JSON outputs from result
-        # Budget output
         budget_start = result_str.find('"funding_strength_score"')
         if budget_start > 0:
             budget_json_start = result_str.rfind('{', 0, budget_start)
@@ -227,8 +220,7 @@ def run_production_crew(
                 budget_data = json.loads(result_str[budget_json_start:budget_json_end])
                 budget_output = BudgetAnalystOutput(**budget_data)
                 state_manager.update_budget_output(budget_output)
-        
-        # Policy output
+
         policy_start = result_str.find('"zoning_flexibility_score"')
         if policy_start > 0:
             policy_json_start = result_str.rfind('{', 0, policy_start)
@@ -237,8 +229,7 @@ def run_production_crew(
                 policy_data = json.loads(result_str[policy_json_start:policy_json_end])
                 policy_output = PolicyAnalystOutput(**policy_data)
                 state_manager.update_policy_output(policy_output)
-        
-        # Underwriter output
+
         underwriter_start = result_str.find('"feasibility_score"')
         if underwriter_start > 0:
             underwriter_json_start = result_str.rfind('{', 0, underwriter_start)
@@ -247,8 +238,7 @@ def run_production_crew(
                 underwriter_data = json.loads(result_str[underwriter_json_start:underwriter_json_end])
                 underwriter_output = UnderwriterOutput(**underwriter_data)
                 state_manager.update_underwriter_output(underwriter_output)
-        
-        # Log shared state events
+
         shared_state = state_manager.get_state()
         if shared_state and shared_state["events"]:
             print(f"[LangGraph] Events: {len(shared_state['events'])} events logged")
@@ -259,7 +249,6 @@ def run_production_crew(
     except Exception as e:
         print(f"Error parsing production crew output: {e}, falling back to deterministic")
     
-    # Fallback to deterministic if parsing failed
     if not (budget_output and policy_output and underwriter_output):
         from backend.agents.budget_analyst import BudgetAnalyst
         from backend.agents.policy_analyst import PolicyAnalyst

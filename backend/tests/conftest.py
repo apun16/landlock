@@ -11,7 +11,7 @@ def test_settings(tmp_path):
         data_dir=str(tmp_path / "data"),
         raw_documents_dir=str(tmp_path / "data" / "raw"),
         sources_registry_path=str(tmp_path / "data" / "sources_registry.jsonl"),
-        scrape_rate_limit_seconds=0.1,  # Faster for tests
+        scrape_rate_limit_seconds=0.1,
     )
 
 

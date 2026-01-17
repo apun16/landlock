@@ -34,11 +34,8 @@ class BudgetAnalyst:
                 citation_ids=[],
             )
         
-        # Calculate funding strength score (0-100)
-        # Simple heuristic: more budget mentions = higher score
         score = min(len(budget_facts) * 10, 100)
         
-        # Extract key allocations
         key_allocations = []
         used_citation_ids = set()
         
@@ -53,11 +50,9 @@ class BudgetAnalyst:
                 })
                 used_citation_ids.update(fact.citation_ids)
         
-        # Confidence based on number of facts with citations
         facts_with_citations = sum(1 for f in budget_facts if f.citation_ids)
         confidence = min(facts_with_citations / max(len(budget_facts), 1), 1.0)
         
-        # If score is based on very few facts, reduce it
         if len(budget_facts) < 3:
             score = max(score - 20, 0) if score else None
         

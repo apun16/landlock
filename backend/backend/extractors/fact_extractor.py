@@ -36,7 +36,6 @@ class FactExtractor:
             citation = self._create_citation(source)
             citations.append(citation)
             
-            # Extract facts based on source category
             source_facts = self._extract_from_source(source, region_id, citation.id)
             facts.extend(source_facts)
         
@@ -51,7 +50,7 @@ class FactExtractor:
             id=citation_id,
             title=source.title,
             uri=source.uri,
-            locator=None,  # Can be set later if page/section info available
+            locator=None,
             retrieved_at=source.retrieved_at,
         )
     
@@ -99,7 +98,6 @@ class FactExtractor:
         soup = BeautifulSoup(content, "lxml")
         text = soup.get_text()
         
-        # Map category to fact type
         category_to_fact_type = {
             SourceCategory.BUDGET: FactType.BUDGET,
             SourceCategory.ZONING: FactType.ZONING,
@@ -109,7 +107,6 @@ class FactExtractor:
         
         fact_type = category_to_fact_type.get(source.category, FactType.BUDGET)
         
-        # Extract based on category
         if source.category == SourceCategory.BUDGET:
             facts.extend(self._extract_budget_facts(text, region_id, citation_id))
         elif source.category == SourceCategory.ZONING:
@@ -135,7 +132,6 @@ class FactExtractor:
             with pdfplumber.open(str(file_path)) as pdf:
                 text = "\n".join(page.extract_text() or "" for page in pdf.pages)
                 
-                # Map category to fact type
                 if source.category == SourceCategory.BUDGET:
                     facts.extend(self._extract_budget_facts(text, region_id, citation_id))
                 elif source.category == SourceCategory.ZONING:
@@ -159,7 +155,6 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
-        # Pattern for budget amounts (e.g., "$1.5 billion", "$500M", "1,500,000 CAD")
         budget_patterns = [
             r'\$[\d.,]+\s*(?:billion|million|B|M|k|thousand)',
             r'\$[\d,]+',
@@ -173,7 +168,6 @@ class FactExtractor:
                 fact_id = f"fact_{region_id}_budget_{fact_counter:04d}"
                 
                 value_str = match.group(0)
-                # Try to extract numeric value
                 value = self._parse_budget_value(value_str)
                 
                 facts.append(ExtractedFact(
@@ -181,12 +175,11 @@ class FactExtractor:
                     region_id=region_id,
                     fact_type=FactType.BUDGET,
                     key=f"budget_mention_{fact_counter}",
-                    value=value_str,  # Store as string for now
+                    value=value_str,
                     unit="CAD",
                     citation_ids=[citation_id],
                 ))
         
-        # Look for year mentions
         year_match = re.search(r'(?:20\d{2}|FY\s*\d{4})', text)
         if year_match:
             fact_counter += 1
@@ -212,7 +205,6 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
-        # Look for zoning codes (e.g., "RS-1", "C-2", "M-3")
         zoning_pattern = r'\b[A-Z]{1,3}[- ]?\d+\b'
         matches = re.finditer(zoning_pattern, text)
         
@@ -229,7 +221,6 @@ class FactExtractor:
                 citation_ids=[citation_id],
             ))
         
-        # Look for zoning keywords
         zoning_keywords = ["residential", "commercial", "industrial", "mixed-use", "density"]
         for keyword in zoning_keywords:
             if keyword.lower() in text.lower():
@@ -257,12 +248,11 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
-        # Look for application numbers or proposal IDs
         proposal_patterns = [
             r'application\s*#?\s*([A-Z0-9-]+)',
             r'proposal\s*#?\s*([A-Z0-9-]+)',
-            r'DP\s*([A-Z0-9-]+)',  # Development Permit
-            r'DA\s*([A-Z0-9-]+)',  # Development Application
+            r'DP\s*([A-Z0-9-]+)',
+            r'DA\s*([A-Z0-9-]+)',
         ]
         
         for pattern in proposal_patterns:
@@ -280,7 +270,6 @@ class FactExtractor:
                     citation_ids=[citation_id],
                 ))
         
-        # Look for status keywords
         status_keywords = ["approved", "pending", "under review", "rejected", "withdrawn"]
         for keyword in status_keywords:
             if keyword.lower() in text.lower():
@@ -308,7 +297,6 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
-        # Look for population numbers
         population_patterns = [
             r'population\s*:?\s*([\d,]+)',
             r'([\d,]+)\s*residents',
@@ -334,7 +322,6 @@ class FactExtractor:
                     citation_ids=[citation_id],
                 ))
         
-        # Look for growth percentages
         growth_pattern = r'growth\s*(?:rate|of)?\s*:?\s*([\d.]+)%'
         matches = re.finditer(growth_pattern, text, re.IGNORECASE)
         for match in matches:
@@ -355,10 +342,8 @@ class FactExtractor:
     
     def _parse_budget_value(self, value_str: str) -> Optional[float]:
         """Parse a budget value string to a float"""
-        # Remove currency symbols and normalize
         normalized = value_str.replace("$", "").replace(",", "").strip()
         
-        # Handle billions, millions, thousands
         if "billion" in value_str.lower() or "b" in value_str.lower():
             multiplier = 1_000_000_000
             normalized = normalized.replace("billion", "").replace("b", "").strip()
@@ -375,3 +360,156 @@ class FactExtractor:
             return float(normalized) * multiplier
         except ValueError:
             return None
+    
+    def _extract_from_rss(
+        self,
+        source: DiscoveredSource,
+        region_id: str,
+        citation_id: str,
+        file_path: Path
+    ) -> List[ExtractedFact]:
+        """Extract facts from RSS feed"""
+        facts: List[ExtractedFact] = []
+        
+        try:
+            content = file_path.read_text(encoding="utf-8", errors="ignore")
+            # RSS feeds are XML, try to parse as such
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(content, "xml")
+            
+            for entry in soup.find_all("item")[:10]:  # Limit entries
+                title = entry.find("title")
+                description = entry.find("description")
+                
+                text = ""
+                if title:
+                    text += title.get_text() + " "
+                if description:
+                    text += description.get_text()
+                
+                if source.category == SourceCategory.BUDGET:
+                    facts.extend(self._extract_budget_facts(text, region_id, citation_id))
+                elif source.category == SourceCategory.ZONING:
+                    facts.extend(self._extract_zoning_facts(text, region_id, citation_id))
+                elif source.category == SourceCategory.PROPOSALS:
+                    facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
+                elif source.category == SourceCategory.ANALYTICS:
+                    facts.extend(self._extract_demographic_facts(text, region_id, citation_id))
+        except Exception as e:
+            print(f"Error reading RSS {file_path}: {e}")
+        
+        return facts
+    
+    def _extract_from_api(
+        self,
+        source: DiscoveredSource,
+        region_id: str,
+        citation_id: str,
+        file_path: Path
+    ) -> List[ExtractedFact]:
+        """Extract facts from API/JSON response"""
+        facts: List[ExtractedFact] = []
+        
+        try:
+            content = file_path.read_text(encoding="utf-8", errors="ignore")
+            data = json.loads(content)
+            
+            text = json.dumps(data, indent=2)
+            
+            if source.category == SourceCategory.BUDGET:
+                facts.extend(self._extract_budget_facts(text, region_id, citation_id))
+                facts.extend(self._extract_budget_facts_from_json(data, region_id, citation_id))
+            elif source.category == SourceCategory.ZONING:
+                facts.extend(self._extract_zoning_facts(text, region_id, citation_id))
+            elif source.category == SourceCategory.PROPOSALS:
+                facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
+            elif source.category == SourceCategory.ANALYTICS:
+                facts.extend(self._extract_demographic_facts(text, region_id, citation_id))
+                facts.extend(self._extract_demographic_facts_from_json(data, region_id, citation_id))
+        except Exception as e:
+            print(f"Error reading API JSON {file_path}: {e}")
+        
+        return facts
+    
+    def _extract_budget_facts_from_json(
+        self,
+        data: dict,
+        region_id: str,
+        citation_id: str
+    ) -> List[ExtractedFact]:
+        """Extract budget facts from structured JSON"""
+        facts: List[ExtractedFact] = []
+        fact_counter = 0
+        
+        budget_keys = ["budget", "total", "amount", "funding", "allocation", "spending"]
+        
+        def extract_from_dict(d, path=""):
+            nonlocal fact_counter
+            if isinstance(d, dict):
+                for key, value in d.items():
+                    key_lower = key.lower()
+                    if any(bk in key_lower for bk in budget_keys):
+                        if isinstance(value, (int, float)):
+                            fact_counter += 1
+                            fact_id = f"fact_{region_id}_budget_json_{fact_counter:04d}"
+                            facts.append(ExtractedFact(
+                                id=fact_id,
+                                region_id=region_id,
+                                fact_type=FactType.BUDGET,
+                                key=f"{path}.{key}" if path else key,
+                                value=value,
+                                unit="CAD",
+                                citation_ids=[citation_id],
+                            ))
+                        elif isinstance(value, dict):
+                            extract_from_dict(value, f"{path}.{key}" if path else key)
+                    else:
+                        extract_from_dict(value, f"{path}.{key}" if path else key)
+            elif isinstance(d, list):
+                for item in d:
+                    extract_from_dict(item, path)
+        
+        extract_from_dict(data)
+        return facts
+    
+    def _extract_demographic_facts_from_json(
+        self,
+        data: dict,
+        region_id: str,
+        citation_id: str
+    ) -> List[ExtractedFact]:
+        """Extract demographic facts from structured JSON"""
+        facts: List[ExtractedFact] = []
+        fact_counter = 0
+        
+        demo_keys = ["population", "demographics", "growth", "residents", "people", "count"]
+        
+        def extract_from_dict(d, path=""):
+            nonlocal fact_counter
+            if isinstance(d, dict):
+                for key, value in d.items():
+                    key_lower = key.lower()
+                    if any(dk in key_lower for dk in demo_keys):
+                        if isinstance(value, (int, float)):
+                            fact_counter += 1
+                            fact_id = f"fact_{region_id}_demographic_json_{fact_counter:04d}"
+                            unit = "percent" if "rate" in key_lower or "growth" in key_lower else "people"
+                            facts.append(ExtractedFact(
+                                id=fact_id,
+                                region_id=region_id,
+                                fact_type=FactType.DEMOGRAPHIC,
+                                key=f"{path}.{key}" if path else key,
+                                value=value,
+                                unit=unit,
+                                citation_ids=[citation_id],
+                            ))
+                        elif isinstance(value, dict):
+                            extract_from_dict(value, f"{path}.{key}" if path else key)
+                    else:
+                        extract_from_dict(value, f"{path}.{key}" if path else key)
+            elif isinstance(d, list):
+                for item in d:
+                    extract_from_dict(item, path)
+        
+        extract_from_dict(data)
+        return facts

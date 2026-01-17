@@ -30,7 +30,6 @@ def mock_html_response():
 def test_source_discovery_can_fetch(test_settings):
     """Test that SourceDiscovery checks robots.txt"""
     discovery = SourceDiscovery(test_settings)
-    # Should default to allowed if robots.txt doesn't exist
     assert discovery.can_fetch("https://example.com/page") is True
 
 
@@ -63,7 +62,6 @@ def test_source_discovery_finds_sources(test_settings, mock_html_response):
 @responses.activate
 def test_city_scraper_stores_documents(test_settings, tmp_path, mock_html_response):
     """Test that CityScraper stores discovered documents"""
-    # Override data dir
     test_settings.raw_documents_dir = str(tmp_path / "data" / "raw")
     test_settings.data_dir = str(tmp_path / "data")
     
@@ -87,10 +85,10 @@ def test_city_scraper_stores_documents(test_settings, tmp_path, mock_html_respon
     )
     
     region_dir = Path(test_settings.raw_documents_dir) / "test_city"
-    region_dir.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
+    region_dir.mkdir(parents=True, exist_ok=True)
     stored_source = scraper._store_source(source, "test_city", region_dir)
     
     assert stored_source.file_hash is not None
     assert stored_source.file_path is not None
     assert region_dir.exists()
-    assert any(region_dir.iterdir())  # Files exist
+    assert any(region_dir.iterdir())  

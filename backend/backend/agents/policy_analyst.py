@@ -26,16 +26,12 @@ class PolicyAnalyst:
         zoning_facts = [f for f in facts if f.fact_type == FactType.ZONING]
         proposal_facts = [f for f in facts if f.fact_type == FactType.PROPOSAL]
         
-        # Calculate zoning flexibility score
-        # More zoning codes/types = more flexibility
+
         zoning_score = None
         if zoning_facts:
             unique_zones = len(set(f.value for f in zoning_facts if f.value))
-            # More zones = higher flexibility (up to 100)
             zoning_score = min(unique_zones * 15, 100) if unique_zones > 0 else None
         
-        # Calculate proposal momentum score
-        # More proposals + approved status = higher momentum
         proposal_score = None
         approval_friction_factors = []
         constraints = []
@@ -53,25 +49,20 @@ class PolicyAnalyst:
             total_proposals = len(proposal_facts)
             approval_rate = (approved_count / total_proposals) if total_proposals > 0 else 0
             
-            # Score based on approval rate and volume
             proposal_score = int(approval_rate * 100) if total_proposals > 0 else None
             
-            # Identify friction factors
             if pending_count > approved_count:
                 approval_friction_factors.append("More pending than approved proposals")
             
-            # Extract constraints from zoning facts
             for fact in zoning_facts:
                 if fact.value and isinstance(fact.value, str):
                     if "restricted" in fact.value.lower() or "residential" in fact.value.lower():
                         constraints.append(f"Zoning restriction: {fact.value}")
         
-        # Combine all facts for evidence count
         all_facts = zoning_facts + proposal_facts
         facts_with_citations = sum(1 for f in all_facts if f.citation_ids)
         confidence = min(facts_with_citations / max(len(all_facts), 1), 1.0)
         
-        # Collect citation IDs
         used_citation_ids = set()
         for fact in all_facts:
             used_citation_ids.update(fact.citation_ids)

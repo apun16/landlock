@@ -1,5 +1,6 @@
 """CrewAI agent implementations"""
-from typing import List, Optional
+from __future__ import annotations
+from typing import List, Optional, Any, TYPE_CHECKING
 import json
 
 from backend.models.extracted_fact import ExtractedFact, FactType
@@ -17,9 +18,13 @@ try:
     CREWAI_AVAILABLE = True
 except ImportError:
     CREWAI_AVAILABLE = False
+    Agent = None
+    Task = None
+    Crew = None
+    ChatOpenAI = None
 
 
-def create_budget_analyst_agent(llm: Optional[ChatOpenAI] = None) -> Optional[Agent]:
+def create_budget_analyst_agent(llm: Optional[Any] = None) -> Optional[Any]:
     """Create Budget Analyst CrewAI agent"""
     if not CREWAI_AVAILABLE:
         return None
@@ -37,7 +42,7 @@ def create_budget_analyst_agent(llm: Optional[ChatOpenAI] = None) -> Optional[Ag
     )
 
 
-def create_policy_analyst_agent(llm: Optional[ChatOpenAI] = None) -> Optional[Agent]:
+def create_policy_analyst_agent(llm: Optional[Any] = None) -> Optional[Any]:
     """Create Policy Analyst CrewAI agent"""
     if not CREWAI_AVAILABLE:
         return None
@@ -56,7 +61,7 @@ def create_policy_analyst_agent(llm: Optional[ChatOpenAI] = None) -> Optional[Ag
     )
 
 
-def create_underwriter_agent(llm: Optional[ChatOpenAI] = None) -> Optional[Agent]:
+def create_underwriter_agent(llm: Optional[Any] = None) -> Optional[Any]:
     """Create Underwriter CrewAI agent"""
     if not CREWAI_AVAILABLE:
         return None
@@ -82,7 +87,6 @@ def analyze_with_crewai_budget_analyst(
 ) -> BudgetAnalystOutput:
     """Analyze budget facts using CrewAI Budget Analyst agent"""
     if not CREWAI_AVAILABLE or not settings.use_llm_mode or not settings.openai_api_key:
-        # Fallback to deterministic
         from backend.agents.budget_analyst import BudgetAnalyst
         analyst = BudgetAnalyst()
         return analyst.analyze(facts, citations)
@@ -98,11 +102,9 @@ def analyze_with_crewai_budget_analyst(
             citation_ids=[],
         )
     
-    # Prepare context
     facts_json = json.dumps([f.model_dump() for f in budget_facts], default=str)
     citations_json = json.dumps([c.model_dump() for c in citations], default=str)
     
-    # Create agent and task
     llm = ChatOpenAI(model="gpt-4", temperature=0, api_key=settings.openai_api_key)
     agent = create_budget_analyst_agent(llm)
     
@@ -144,11 +146,8 @@ Output format (JSON):
     
     result = crew.kickoff()
     
-    # Parse result and create output
     try:
-        # Extract JSON from result
         result_str = str(result)
-        # Try to find JSON in the output
         json_start = result_str.find('{')
         json_end = result_str.rfind('}') + 1
         if json_start >= 0 and json_end > json_start:
@@ -157,7 +156,6 @@ Output format (JSON):
     except Exception as e:
         print(f"Error parsing CrewAI output: {e}, falling back to deterministic")
     
-    # Fallback to deterministic
     from backend.agents.budget_analyst import BudgetAnalyst
     analyst = BudgetAnalyst()
     return analyst.analyze(facts, citations)
@@ -170,7 +168,6 @@ def analyze_with_crewai_policy_analyst(
 ) -> PolicyAnalystOutput:
     """Analyze policy facts using CrewAI Policy Analyst agent"""
     if not CREWAI_AVAILABLE or not settings.use_llm_mode or not settings.openai_api_key:
-        # Fallback to deterministic
         from backend.agents.policy_analyst import PolicyAnalyst
         analyst = PolicyAnalyst()
         return analyst.analyze(facts, citations)
@@ -178,14 +175,12 @@ def analyze_with_crewai_policy_analyst(
     zoning_facts = [f for f in facts if f.fact_type == FactType.ZONING]
     proposal_facts = [f for f in facts if f.fact_type == FactType.PROPOSAL]
     
-    # Prepare context
     facts_json = json.dumps(
         [f.model_dump() for f in zoning_facts + proposal_facts], 
         default=str
     )
     citations_json = json.dumps([c.model_dump() for c in citations], default=str)
     
-    # Create agent and task
     llm = ChatOpenAI(model="gpt-4", temperature=0, api_key=settings.openai_api_key)
     agent = create_policy_analyst_agent(llm)
     
@@ -231,7 +226,6 @@ Output format (JSON):
     
     result = crew.kickoff()
     
-    # Parse result
     try:
         result_str = str(result)
         json_start = result_str.find('{')
@@ -242,7 +236,6 @@ Output format (JSON):
     except Exception as e:
         print(f"Error parsing CrewAI output: {e}, falling back to deterministic")
     
-    # Fallback to deterministic
     from backend.agents.policy_analyst import PolicyAnalyst
     analyst = PolicyAnalyst()
     return analyst.analyze(facts, citations)
@@ -257,18 +250,15 @@ def analyze_with_crewai_underwriter(
 ) -> UnderwriterOutput:
     """Analyze using CrewAI Underwriter agent"""
     if not CREWAI_AVAILABLE or not settings.use_llm_mode or not settings.openai_api_key:
-        # Fallback to deterministic
         from backend.agents.underwriter import Underwriter
         underwriter = Underwriter()
         return underwriter.analyze(budget_output, policy_output, facts, citations)
     
-    # Prepare context
     budget_json = json.dumps(budget_output.model_dump(), default=str)
     policy_json = json.dumps(policy_output.model_dump(), default=str)
     facts_json = json.dumps([f.model_dump() for f in facts], default=str)
     citations_json = json.dumps([c.model_dump() for c in citations], default=str)
     
-    # Create agent and task
     llm = ChatOpenAI(model="gpt-4", temperature=0, api_key=settings.openai_api_key)
     agent = create_underwriter_agent(llm)
     
@@ -325,7 +315,6 @@ Output format (JSON):
     
     result = crew.kickoff()
     
-    # Parse result
     try:
         result_str = str(result)
         json_start = result_str.find('{')
@@ -336,7 +325,6 @@ Output format (JSON):
     except Exception as e:
         print(f"Error parsing CrewAI output: {e}, falling back to deterministic")
     
-    # Fallback to deterministic
     from backend.agents.underwriter import Underwriter
     underwriter = Underwriter()
     return underwriter.analyze(budget_output, policy_output, facts, citations)

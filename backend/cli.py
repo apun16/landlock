@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """CLI for running the pipeline"""
 import json
 import sys
@@ -58,7 +57,6 @@ def main():
     
     args = parser.parse_args()
     
-    # Build entry points dict
     known_entry_points = {}
     
     if args.budget_entry:
@@ -70,7 +68,6 @@ def main():
     if args.analytics_entry:
         known_entry_points[SourceCategory.ANALYTICS] = args.analytics_entry
     
-    # If no entry points specified, use defaults
     if not known_entry_points:
         known_entry_points = {
             SourceCategory.BUDGET: ["/budget", "/finance"],
@@ -79,7 +76,6 @@ def main():
             SourceCategory.ANALYTICS: ["/statistics", "/demographics"],
         }
     
-    # Initialize settings and runner
     settings = Settings()
     runner = PipelineRunner(settings)
     
@@ -97,7 +93,6 @@ def main():
                 known_entry_points
             )
         
-        # Output results
         output_json = output.model_dump_json(indent=2)
         
         if args.output:

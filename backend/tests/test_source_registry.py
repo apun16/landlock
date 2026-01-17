@@ -12,16 +12,12 @@ def test_source_registry_add_get(test_settings, sample_discovered_source):
     """Test adding and retrieving sources"""
     registry = SourceRegistry(test_settings)
     
-    # Modify source to have a file_path with region_id
     sample_discovered_source.file_path = f"data/raw/test_region/test_file.html"
     
-    # Add source
     registry.add_source(sample_discovered_source)
     
-    # Should be able to retrieve
     assert Path(test_settings.sources_registry_path).exists()
     
-    # Get sources by region
     sources = registry.get_sources_by_region("test_region")
     assert len(sources) > 0
     assert sources[0].title == sample_discovered_source.title

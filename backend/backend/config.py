@@ -6,22 +6,18 @@ from typing import Optional
 class Settings(BaseSettings):
     """Application settings"""
     
-    # Data storage
     data_dir: str = "data"
     raw_documents_dir: str = "data/raw"
     sources_registry_path: str = "data/sources_registry.jsonl"
     
-    # Scraping
     scrape_rate_limit_seconds: float = 2.0
     scrape_timeout_seconds: int = 30
     scrape_max_depth: int = 3
     scrape_max_pages_per_category: int = 50
     
-    # LLM/CrewAI (optional)
     openai_api_key: Optional[str] = None
-    use_llm_mode: bool = False  # Default: deterministic
+    use_llm_mode: bool = False
     
-    # API
     api_host: str = "0.0.0.0"
     api_port: int = 8000
     

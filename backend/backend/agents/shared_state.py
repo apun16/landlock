@@ -1,12 +1,19 @@
 """LangGraph shared state management for CrewAI agents"""
-from typing import TypedDict, Annotated, List, Optional, Dict
-from langgraph.graph.message import add_messages
+from typing import TypedDict, List, Optional, Dict
 
 try:
+    from typing import Annotated
+    from langgraph.graph.message import add_messages
     from langgraph.graph import StateGraph, END
     LANGGRAPH_AVAILABLE = True
 except ImportError:
     LANGGRAPH_AVAILABLE = False
+    # Fallback: define Annotated without add_messages
+    try:
+        from typing import Annotated
+    except ImportError:
+        Annotated = None
+    add_messages = lambda x: x  # noqa: E731
 
 from backend.models.extracted_fact import ExtractedFact
 from backend.models.citation import Citation
@@ -20,15 +27,15 @@ from backend.models.agent_outputs import (
 class AgentState(TypedDict):
     """Shared state for LangGraph agent workflow"""
     region_id: str
-    facts: List[Dict]  # Serialized ExtractedFact objects
-    citations: List[Dict]  # Serialized Citation objects
-    budget_output: Optional[Dict]  # Serialized BudgetAnalystOutput
-    policy_output: Optional[Dict]  # Serialized PolicyAnalystOutput
-    underwriter_output: Optional[Dict]  # Serialized UnderwriterOutput
-    events: Annotated[List[str], add_messages]  # Events log
-    scores: Dict[str, Optional[int]]  # Scores tracking
-    constraints: List[str]  # Collected constraints
-    plan_variants: List[str]  # Plan variants considered
+    facts: List[Dict]
+    citations: List[Dict]
+    budget_output: Optional[Dict]
+    policy_output: Optional[Dict]
+    underwriter_output: Optional[Dict]
+    events: List[str]  # Simplified when langgraph not available
+    scores: Dict[str, Optional[int]]
+    constraints: List[str]
+    plan_variants: List[str]
 
 
 class SharedStateManager:

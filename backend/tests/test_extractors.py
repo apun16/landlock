@@ -9,7 +9,6 @@ from backend.models.discovered_source import DiscoveredSource, SourceCategory, D
 @pytest.mark.usefixtures("test_settings")
 def test_fact_extractor_budget(test_settings, tmp_path):
     """Test extracting budget facts from HTML"""
-    # Create a test HTML file
     test_file = tmp_path / "budget.html"
     test_file.write_text("""
     <html>
@@ -38,8 +37,7 @@ def test_fact_extractor_budget(test_settings, tmp_path):
     assert len(citations) == 1
     assert len(facts) > 0
     assert any(f.fact_type.value == "budget" for f in facts)
-    assert all(f.citation_ids for f in facts if f.value)  # All facts with values have citations
-
+    assert all(f.citation_ids for f in facts if f.value) 
 
 @pytest.mark.usefixtures("test_settings")
 def test_fact_extractor_zoning(test_settings, tmp_path):

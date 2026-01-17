@@ -27,14 +27,12 @@ def test_extracted_fact_requires_citations():
         fact_type=FactType.BUDGET,
         key="test_key",
         value=100,
-        citation_ids=[],  # Empty!
+        citation_ids=[],
     )
     
-    # Should raise when validating
     with pytest.raises(ValueError, match="no citations"):
         fact_with_value.model_validate_citations()
     
-    # Should not raise with citations
     fact_with_citations = ExtractedFact(
         id="fact_002",
         region_id="test",
@@ -43,7 +41,7 @@ def test_extracted_fact_requires_citations():
         value=100,
         citation_ids=["cite_001"],
     )
-    fact_with_citations.model_validate_citations()  # Should pass
+    fact_with_citations.model_validate_citations()
 
 
 def test_extracted_fact_null_value_allowed():
@@ -57,8 +55,7 @@ def test_extracted_fact_null_value_allowed():
         citation_ids=[],
         missing_reason="Data not found in sources",
     )
-    # Should not raise even without citations for null values
-    fact_null.model_validate_citations()  # Should pass
+    fact_null.model_validate_citations()
 
 
 def test_discovered_source_model():
@@ -81,7 +78,6 @@ def test_agent_outputs_validation():
         UnderwriterOutput,
     )
     
-    # Budget Analyst
     budget_output = BudgetAnalystOutput(
         funding_strength_score=75,
         confidence=0.8,
@@ -91,7 +87,6 @@ def test_agent_outputs_validation():
     assert budget_output.funding_strength_score == 75
     assert budget_output.confidence == 0.8
     
-    # Policy Analyst
     policy_output = PolicyAnalystOutput(
         zoning_flexibility_score=60,
         proposal_momentum_score=70,
@@ -101,7 +96,6 @@ def test_agent_outputs_validation():
     )
     assert policy_output.zoning_flexibility_score == 60
     
-    # Underwriter
     underwriter_output = UnderwriterOutput(
         feasibility_score=65,
         verdict="caution",
@@ -121,4 +115,4 @@ def test_agent_outputs_validation():
         }],
     )
     assert underwriter_output.verdict == "caution"
-    underwriter_output.validate_pros_cons()  # Should pass
+    underwriter_output.validate_pros_cons()
