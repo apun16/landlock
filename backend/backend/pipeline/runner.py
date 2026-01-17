@@ -65,18 +65,36 @@ class PipelineRunner:
         
         # Step 4: Run agents
         print(f"[Pipeline] Running Budget Analyst...")
-        budget_output = self.budget_analyst.analyze(facts, citations)
+        if self.settings.use_llm_mode:
+            from backend.agents.crew_agents import analyze_with_crewai_budget_analyst
+            budget_output = analyze_with_crewai_budget_analyst(facts, citations, self.settings)
+        else:
+            budget_output = self.budget_analyst.analyze(facts, citations)
         
         print(f"[Pipeline] Running Policy Analyst...")
-        policy_output = self.policy_analyst.analyze(facts, citations)
+        if self.settings.use_llm_mode:
+            from backend.agents.crew_agents import analyze_with_crewai_policy_analyst
+            policy_output = analyze_with_crewai_policy_analyst(facts, citations, self.settings)
+        else:
+            policy_output = self.policy_analyst.analyze(facts, citations)
         
         print(f"[Pipeline] Running Underwriter...")
-        underwriter_output = self.underwriter.analyze(
-            budget_output,
-            policy_output,
-            facts,
-            citations
-        )
+        if self.settings.use_llm_mode:
+            from backend.agents.crew_agents import analyze_with_crewai_underwriter
+            underwriter_output = analyze_with_crewai_underwriter(
+                budget_output,
+                policy_output,
+                facts,
+                citations,
+                self.settings
+            )
+        else:
+            underwriter_output = self.underwriter.analyze(
+                budget_output,
+                policy_output,
+                facts,
+                citations
+            )
         
         # Step 5: Compile final output
         output = RegionPanelOutput(
@@ -113,14 +131,30 @@ class PipelineRunner:
         )
         
         # Run agents
-        budget_output = self.budget_analyst.analyze(facts, citations)
-        policy_output = self.policy_analyst.analyze(facts, citations)
-        underwriter_output = self.underwriter.analyze(
-            budget_output,
-            policy_output,
-            facts,
-            citations
-        )
+        if self.settings.use_llm_mode:
+            from backend.agents.crew_agents import (
+                analyze_with_crewai_budget_analyst,
+                analyze_with_crewai_policy_analyst,
+                analyze_with_crewai_underwriter,
+            )
+            budget_output = analyze_with_crewai_budget_analyst(facts, citations, self.settings)
+            policy_output = analyze_with_crewai_policy_analyst(facts, citations, self.settings)
+            underwriter_output = analyze_with_crewai_underwriter(
+                budget_output,
+                policy_output,
+                facts,
+                citations,
+                self.settings
+            )
+        else:
+            budget_output = self.budget_analyst.analyze(facts, citations)
+            policy_output = self.policy_analyst.analyze(facts, citations)
+            underwriter_output = self.underwriter.analyze(
+                budget_output,
+                policy_output,
+                facts,
+                citations
+            )
         
         return RegionPanelOutput(
             region_id=region_id,

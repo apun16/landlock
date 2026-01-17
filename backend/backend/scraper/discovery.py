@@ -32,14 +32,17 @@ class SourceDiscovery:
                 self.robots_parsers[domain] = parser
             except Exception:
                 # Assume allowed if robots.txt doesn't exist or fails
-                parser = RobotFileParser()
-                parser.set_url(robots_url)
-                # Create a permissive parser
+                # Create a permissive parser that always allows
+                class PermissiveParser(RobotFileParser):
+                    def can_fetch(self, *args, **kwargs):
+                        return True
+                parser = PermissiveParser()
                 self.robots_parsers[domain] = parser
         
         parser = self.robots_parsers[domain]
         try:
-            return parser.can_fetch("*", url)
+            result = parser.can_fetch("*", url)
+            return result
         except Exception:
             # Default to allowed on error
             return True

@@ -87,6 +87,7 @@ def test_city_scraper_stores_documents(test_settings, tmp_path, mock_html_respon
     )
     
     region_dir = Path(test_settings.raw_documents_dir) / "test_city"
+    region_dir.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
     stored_source = scraper._store_source(source, "test_city", region_dir)
     
     assert stored_source.file_hash is not None
