@@ -1,5 +1,5 @@
 import { ChatOpenAI } from '@langchain/openai';
-import { HumanMessage, SystemMessage, AIMessage } from '@langchain/core/messages';
+import { HumanMessage, SystemMessage } from '@langchain/core/messages';
 
 export interface AgentConfig {
   id: string;
@@ -17,8 +17,8 @@ export interface AgentMessage {
   timestamp: Date;
   reasoning: string;
   action: string;
-  input: any;
-  output: any;
+  input: unknown;
+  output: unknown;
   nextAgent: string | null;
 }
 
@@ -53,7 +53,7 @@ export abstract class BaseAgent {
     return response.content as string;
   }
 
-  protected logMessage(reasoning: string, action: string, input: any, output: any, nextAgent: string | null): AgentMessage {
+  protected logMessage(reasoning: string, action: string, input: unknown, output: unknown, nextAgent: string | null): AgentMessage {
     const message: AgentMessage = {
       agentId: this.config.id,
       agentName: this.config.name,
@@ -76,5 +76,5 @@ export abstract class BaseAgent {
     return this.config;
   }
 
-  abstract execute(input: any): Promise<any>;
+  abstract execute(input: unknown): Promise<unknown>;
 }

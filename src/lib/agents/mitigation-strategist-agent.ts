@@ -155,7 +155,7 @@ export class MitigationStrategistAgent extends BaseAgent {
       try {
         const additionalActions = await this.generateLLMActions(input);
         actions.push(...additionalActions);
-      } catch (error) {
+      } catch {
         console.warn('LLM action generation failed, using rule-based actions only');
       }
     }
@@ -188,15 +188,15 @@ Format as JSON array.`;
 
     try {
       const parsed = JSON.parse(response);
-      return parsed.slice(0, 2).map((item: any) => ({
-        priority: item.priority || 'medium',
-        category: item.category || 'mitigation',
-        title: item.title,
-        description: item.description,
-        estimatedCost: item.estimatedCost || 150000,
-        timeframe: item.timeframe || '3-6 months',
-        expectedRiskReduction: item.expectedRiskReduction || 5,
-        stakeholders: item.stakeholders || ['Municipal Government']
+      return parsed.slice(0, 2).map((item: Record<string, unknown>) => ({
+        priority: (item.priority as string) || 'medium',
+        category: (item.category as string) || 'mitigation',
+        title: item.title as string,
+        description: item.description as string,
+        estimatedCost: (item.estimatedCost as number) || 150000,
+        timeframe: (item.timeframe as string) || '3-6 months',
+        expectedRiskReduction: (item.expectedRiskReduction as number) || 5,
+        stakeholders: (item.stakeholders as string[]) || ['Municipal Government']
       }));
     } catch {
       return [];
@@ -212,7 +212,7 @@ Format as JSON array.`;
           'You are a strategic communicator. Write clear, confident summaries.',
           prompt
         );
-      } catch (error) {
+      } catch {
         console.warn('LLM strategy generation failed');
       }
     }

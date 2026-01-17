@@ -14,6 +14,11 @@ interface HeatMapJsonData {
   observations: FSAData[];
 }
 
+interface StatsData {
+  total: number;
+  byLevel: Record<number, number>;
+}
+
 export default function HazardMap() {
   const mapRef = useRef<L.Map | null>(null);
   const dataRef = useRef<HeatMapDataPoint[]>([]);
@@ -25,6 +30,7 @@ export default function HazardMap() {
   const [mapReady, setMapReady] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchError, setSearchError] = useState('');
+  const [stats, setStats] = useState<StatsData>({ total: 0, byLevel: {} });
 
   // Load and process data
   useEffect(() => {
@@ -33,6 +39,14 @@ export default function HazardMap() {
       .then((json: HeatMapJsonData) => {
         const processed = processHeatMapData(json.observations);
         dataRef.current = processed;
+        
+        // Compute stats for rendering
+        const byLevel: Record<number, number> = {};
+        for (const point of processed) {
+          byLevel[point.exposure] = (byLevel[point.exposure] || 0) + 1;
+        }
+        setStats({ total: processed.length, byLevel });
+        
         setDataVersion(v => v + 1);
         setLoading(false);
       })
@@ -321,23 +335,20 @@ export default function HazardMap() {
           Statistics
         </h3>
         <div className="grid grid-cols-5 gap-2">
-          {exposureLevels.map(({ level }) => {
-            const count = dataRef.current.filter(d => d.exposure === level).length;
-            return (
-              <div key={level} className="text-center">
-                <div
-                  className="mx-auto mb-1 h-3 w-3 rounded-full"
-                  style={{ backgroundColor: getExposureColor(level) }}
-                />
-                <p className="text-lg font-bold text-white">{count}</p>
-                <p className="text-[10px] text-zinc-500">Level {level}</p>
-              </div>
-            );
-          })}
+          {exposureLevels.map(({ level }) => (
+            <div key={level} className="text-center">
+              <div
+                className="mx-auto mb-1 h-3 w-3 rounded-full"
+                style={{ backgroundColor: getExposureColor(level) }}
+              />
+              <p className="text-lg font-bold text-white">{stats.byLevel[level] || 0}</p>
+              <p className="text-[10px] text-zinc-500">Level {level}</p>
+            </div>
+          ))}
         </div>
         <div className="mt-3 border-t border-zinc-800 pt-3">
           <p className="text-xs text-zinc-400">
-            Total FSAs: <span className="font-semibold text-white">{dataRef.current.length}</span>
+            Total FSAs: <span className="font-semibold text-white">{stats.total}</span>
           </p>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { RiskScore, RiskReport, CostProjection, DisasterRecoveryScenario, AgentConclusion, WildfirePerimeter, WildfireStatistics, ZoningRegion } from '../types/hazard';
 import { stateManager } from '../state/region-state';
+import { AgentMessage } from './base-agent';
 
 export interface AgentConfig {
   id: string;
@@ -74,7 +75,7 @@ export class InsuranceRiskAnalystAgent {
   private config: AgentConfig;
   private currentTask: AgentTask | null = null;
   private conclusions: AgentConclusion[] = [];
-  private messageHistory: any[] = [];
+  private messageHistory: AgentMessage[] = [];
 
   constructor(config: AgentConfig = INSURANCE_RISK_ANALYST_CONFIG) {
     this.config = config;
@@ -84,7 +85,7 @@ export class InsuranceRiskAnalystAgent {
     return this.config;
   }
 
-  getMessageHistory(): any[] {
+  getMessageHistory(): AgentMessage[] {
     return this.messageHistory;
   }
 

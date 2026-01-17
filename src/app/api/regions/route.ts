@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const type = searchParams.get('type');
 
     const regions = stateManager.getAllRegions();
-    let filteredRegions = type ? regions.filter(r => r.regionType === type) : regions;
+    const filteredRegions = type ? regions.filter(r => r.regionType === type) : regions;
 
     const regionSummaries = filteredRegions.map(region => ({
       id: region.regionId,

@@ -177,7 +177,7 @@ Provide 2-3 specific recommendations to improve data quality for insurance risk 
         );
         
         recommendations.push(...llmRecommendations.split('\n').filter(r => r.trim().length > 0).slice(0, 3));
-      } catch (error) {
+      } catch {
         console.warn('LLM call failed, using rule-based recommendations only');
       }
     }

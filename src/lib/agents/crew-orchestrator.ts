@@ -3,13 +3,14 @@ import { InsuranceRiskAnalystAgent } from './insurance-risk-analyst';
 import { MitigationStrategistAgent, MitigationStrategistInput, MitigationStrategistOutput } from './mitigation-strategist-agent';
 import { AgentMessage } from './base-agent';
 import { stateManager } from '../state/region-state';
+import { RiskScore, RiskReport, AgentConclusion } from '../types/hazard';
 
 export interface CrewState {
   regionId: string;
   regionName: string;
   currentAgent: string | null;
   dataAnalysis: DataAnalystOutput | null;
-  riskAnalysis: { riskScore: any; report: any; conclusions: any[] } | null;
+  riskAnalysis: { riskScore: RiskScore; report: RiskReport; conclusions: AgentConclusion[] } | null;
   mitigationStrategy: MitigationStrategistOutput | null;
   communicationLog: AgentMessage[];
   startTime: Date;
@@ -22,8 +23,8 @@ export interface CrewResult {
   regionId: string;
   regionName: string;
   dataQuality: DataAnalystOutput['dataQuality'];
-  riskScore: any;
-  riskReport: any;
+  riskScore: RiskScore;
+  riskReport: RiskReport;
   mitigationStrategy: MitigationStrategistOutput;
   communicationLog: AgentMessage[];
   executionTimeMs: number;
