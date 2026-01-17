@@ -1,5 +1,6 @@
 """Main scraper class - orchestrates discovery and document storage"""
 import hashlib
+import json
 import os
 from pathlib import Path
 from typing import List, Dict
@@ -89,6 +90,17 @@ class CityScraper:
                 "api": ".json",
             }
             ext = ext_map.get(source.document_type.value, ".txt")
+            
+            # For API endpoints, ensure content is JSON
+            if source.document_type.value == "api":
+                try:
+                    # Try to parse as JSON to validate
+                    json.loads(content.decode('utf-8'))
+                except:
+                    # If not valid JSON, might be HTML error page
+                    content_type = resp.headers.get("Content-Type", "").lower()
+                    if "html" in content_type:
+                        ext = ".html"
             
             # Generate safe filename
             safe_title = "".join(

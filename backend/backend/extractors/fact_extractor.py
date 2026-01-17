@@ -77,6 +77,10 @@ class FactExtractor:
                 facts = self._extract_from_html(source, region_id, citation_id, file_path)
             elif source.document_type == DocumentType.PDF:
                 facts = self._extract_from_pdf(source, region_id, citation_id, file_path)
+            elif source.document_type == DocumentType.RSS:
+                facts = self._extract_from_rss(source, region_id, citation_id, file_path)
+            elif source.document_type == DocumentType.API:
+                facts = self._extract_from_api(source, region_id, citation_id, file_path)
         except Exception as e:
             print(f"Error extracting from {source.uri}: {e}")
         

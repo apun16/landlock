@@ -63,32 +63,21 @@ class PipelineRunner:
             region_id
         )
         
-        # Step 4: Run agents
-        print(f"[Pipeline] Running Budget Analyst...")
+        # Step 4: Run agents (unified production crew or individual)
         if self.settings.use_llm_mode:
-            from backend.agents.crew_agents import analyze_with_crewai_budget_analyst
-            budget_output = analyze_with_crewai_budget_analyst(facts, citations, self.settings)
+            print(f"[Pipeline] Running unified production crew...")
+            from backend.agents.production_crew import run_production_crew
+            output = run_production_crew(facts, citations, self.settings, region_id)
+            return output
         else:
+            # Deterministic mode - run agents individually
+            print(f"[Pipeline] Running Budget Analyst...")
             budget_output = self.budget_analyst.analyze(facts, citations)
-        
-        print(f"[Pipeline] Running Policy Analyst...")
-        if self.settings.use_llm_mode:
-            from backend.agents.crew_agents import analyze_with_crewai_policy_analyst
-            policy_output = analyze_with_crewai_policy_analyst(facts, citations, self.settings)
-        else:
+            
+            print(f"[Pipeline] Running Policy Analyst...")
             policy_output = self.policy_analyst.analyze(facts, citations)
-        
-        print(f"[Pipeline] Running Underwriter...")
-        if self.settings.use_llm_mode:
-            from backend.agents.crew_agents import analyze_with_crewai_underwriter
-            underwriter_output = analyze_with_crewai_underwriter(
-                budget_output,
-                policy_output,
-                facts,
-                citations,
-                self.settings
-            )
-        else:
+            
+            print(f"[Pipeline] Running Underwriter...")
             underwriter_output = self.underwriter.analyze(
                 budget_output,
                 policy_output,
@@ -130,23 +119,12 @@ class PipelineRunner:
             region_id
         )
         
-        # Run agents
+        # Run agents (unified production crew or individual)
         if self.settings.use_llm_mode:
-            from backend.agents.crew_agents import (
-                analyze_with_crewai_budget_analyst,
-                analyze_with_crewai_policy_analyst,
-                analyze_with_crewai_underwriter,
-            )
-            budget_output = analyze_with_crewai_budget_analyst(facts, citations, self.settings)
-            policy_output = analyze_with_crewai_policy_analyst(facts, citations, self.settings)
-            underwriter_output = analyze_with_crewai_underwriter(
-                budget_output,
-                policy_output,
-                facts,
-                citations,
-                self.settings
-            )
+            from backend.agents.production_crew import run_production_crew
+            return run_production_crew(facts, citations, self.settings, region_id)
         else:
+            # Deterministic mode
             budget_output = self.budget_analyst.analyze(facts, citations)
             policy_output = self.policy_analyst.analyze(facts, citations)
             underwriter_output = self.underwriter.analyze(

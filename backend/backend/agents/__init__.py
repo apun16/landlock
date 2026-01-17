@@ -15,6 +15,15 @@ try:
         analyze_with_crewai_underwriter,
         CREWAI_AVAILABLE,
     )
+    from .production_crew import (
+        create_production_crew,
+        run_production_crew,
+    )
+    from .shared_state import (
+        SharedStateManager,
+        AgentState,
+        LANGGRAPH_AVAILABLE,
+    )
     __all__ = [
         "BudgetAnalyst",
         "PolicyAnalyst",
@@ -25,8 +34,26 @@ try:
         "analyze_with_crewai_budget_analyst",
         "analyze_with_crewai_policy_analyst",
         "analyze_with_crewai_underwriter",
+        "create_production_crew",
+        "run_production_crew",
+        "SharedStateManager",
+        "AgentState",
         "CREWAI_AVAILABLE",
+        "LANGGRAPH_AVAILABLE",
     ]
 except ImportError:
     CREWAI_AVAILABLE = False
-    __all__ = ["BudgetAnalyst", "PolicyAnalyst", "Underwriter", "CREWAI_AVAILABLE"]
+    LANGGRAPH_AVAILABLE = False
+    try:
+        from .shared_state import SharedStateManager, AgentState
+        __all__ = [
+            "BudgetAnalyst",
+            "PolicyAnalyst",
+            "Underwriter",
+            "SharedStateManager",
+            "AgentState",
+            "CREWAI_AVAILABLE",
+            "LANGGRAPH_AVAILABLE",
+        ]
+    except ImportError:
+        __all__ = ["BudgetAnalyst", "PolicyAnalyst", "Underwriter", "CREWAI_AVAILABLE"]

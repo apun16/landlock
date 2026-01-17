@@ -15,6 +15,8 @@ urllib3==2.2.2
 crewai>=0.80.0
 langchain>=0.1.0
 langchain-openai>=0.1.0
+langgraph>=0.2.0  # For shared state management
+feedparser>=6.0.10  # For RSS feed parsing
 
 # Data & storage
 python-dateutil==2.9.0

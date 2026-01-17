@@ -1,13 +1,21 @@
 """Source discovery - finds relevant pages from city websites"""
-from typing import List, Set
-from urllib.parse import urljoin, urlparse
+from typing import List, Set, Optional
+from urllib.parse import urljoin, urlparse, parse_qs
 from urllib.robotparser import RobotFileParser
 from bs4 import BeautifulSoup
 import requests
 import time
+import json
+import re
 
 from backend.models.discovered_source import DiscoveredSource, SourceCategory, DocumentType
 from backend.config import Settings
+
+try:
+    import feedparser
+    FEEDPARSER_AVAILABLE = True
+except ImportError:
+    FEEDPARSER_AVAILABLE = False
 
 
 class SourceDiscovery:
@@ -124,6 +132,27 @@ class SourceDiscovery:
                 discovered.append(source)
                 return discovered
             
+            # Handle RSS feeds
+            if "rss" in content_type or "xml" in content_type or url.lower().endswith((".rss", ".xml", "/feed")):
+                rss_sources = self._discover_from_rss(url, category)
+                if rss_sources:
+                    discovered.extend(rss_sources)
+                    return discovered
+            
+            # Handle JSON/API endpoints
+            if "json" in content_type or url.lower().endswith(".json"):
+                source = DiscoveredSource(
+                    title=self._extract_title_from_api_url(url),
+                    uri=url,
+                    category=category,
+                    document_type=DocumentType.API,
+                )
+                discovered.append(source)
+                # Try to discover more API endpoints
+                api_sources = self._discover_api_endpoints(url, category)
+                discovered.extend(api_sources)
+                return discovered
+            
             # Handle HTML
             if "html" in content_type or url.lower().endswith((".html", ".htm")):
                 soup = BeautifulSoup(resp.text, "lxml")
@@ -137,6 +166,24 @@ class SourceDiscovery:
                     document_type=DocumentType.HTML,
                 )
                 discovered.append(source)
+                
+                # Look for RSS feed links
+                rss_links = soup.find_all("link", type=["application/rss+xml", "application/atom+xml"])
+                for rss_link in rss_links:
+                    href = rss_link.get("href")
+                    if href:
+                        full_rss_url = urljoin(url, href)
+                        if full_rss_url not in self.visited_urls:
+                            rss_sources = self._discover_from_rss(full_rss_url, category)
+                            discovered.extend(rss_sources)
+                
+                # Look for ArcGIS portals
+                arcgis_sources = self._discover_arcgis_portals(soup, url, category)
+                discovered.extend(arcgis_sources)
+                
+                # Look for API endpoints
+                api_sources = self._discover_api_endpoints_from_html(soup, url, category)
+                discovered.extend(api_sources)
                 
                 # Follow internal links
                 if len(discovered) < self.settings.scrape_max_pages_per_category:
