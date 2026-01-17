@@ -200,7 +200,9 @@ export class ZoningIngestionService {
     const searchStr = JSON.stringify(properties).toLowerCase();
     
     if (searchStr.includes('residential') && searchStr.includes('single')) return 'residential_single';
-    if (searchStr.includes('residential') || searchStr.includes('multi')) return 'residential_multi';
+    if (searchStr.includes('residential') && (searchStr.includes('multi') || searchStr.includes('apartment') || searchStr.includes('duplex'))) return 'residential_multi';
+    if (searchStr.includes('residential')) return 'residential_single';
+    if (searchStr.includes('mixed') || searchStr.includes('multi-use') || searchStr.includes('multipurpose')) return 'mixed_use';
     if (searchStr.includes('commercial')) return 'commercial';
     if (searchStr.includes('industrial')) return 'industrial';
     if (searchStr.includes('agricultural')) return 'agricultural';

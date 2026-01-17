@@ -57,6 +57,7 @@ export type EventType =
   | 'report_generation_completed'
   | 'agent_execution_started'
   | 'agent_execution_completed'
+  | 'crew_execution_completed'
   | 'validation_completed'
   | 'state_updated';
 

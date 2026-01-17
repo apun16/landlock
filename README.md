@@ -24,9 +24,13 @@ npm run build     # Production build
 - ✅ **Generate regional insurance risk reports** - Full reports with recommendations, explainability, and data sources
 - ✅ **Model cost projections and disaster recovery scenarios** - 9 scenarios (3 climate × 3 development), 4 recovery magnitudes
 
-#### Agent Implementation (Rule-Based)
-- ✅ **Create Insurance Risk Analyst structure** - Agent config with role, goal, backstory, 6-task pipeline
-- ⚠️ **NOT actual CrewAI SDK** - Uses CrewAI-style patterns with hardcoded formulas, not real LLM
+#### Multi-Agent System (3 Agents)
+- ✅ **Agent 1: Data Analyst** - Validates wildfire/zoning data quality
+- ✅ **Agent 2: Insurance Risk Analyst** - Analyzes risk and generates reports
+- ✅ **Agent 3: Mitigation Strategist** - Develops risk reduction strategies
+- ✅ **Crew Orchestrator** - Coordinates agent hand-offs with communication logs
+- ✅ **LangGraph-style state** - Shared state management for agent coordination
+- ⚠️ **Optional LLM** - Works with rule-based logic, can integrate OpenAI/Anthropic
 
 #### Automation
 - ✅ **Automate data refresh and agent execution pipeline** - 8-stage pipeline with scheduling
@@ -40,13 +44,14 @@ npm run build     # Production build
 #### Testing
 - ✅ **Test Coverage** - 40 tests passing (state manager, data sources, risk analyst logic)
 
-### ❌ Right Sidebar - What's Missing for Real AI
+### ✅ Multi-Agent Orchestration - COMPLETE
 
-- ❌ **Actual CrewAI SDK integration** - Currently using patterns only, not the real framework
-- ❌ **Real LLM integration** - Need OpenAI/Anthropic API for dynamic reasoning
-- ❌ **Multi-agent orchestration** - Only 1 agent, need 3+ with agent-to-agent communication
-- ❌ **Communication logs** - No step-by-step reasoning between agents
-- ❌ **Conditional routing** - Simple sequential pipeline, no advanced orchestration
+- ✅ **3-Agent System** - Data Analyst → Insurance Risk Analyst → Mitigation Strategist
+- ✅ **Agent Hand-offs** - Clear data flow with communication logs
+- ✅ **LangGraph-style State** - Shared state management across agents
+- ✅ **Communication Logs** - Step-by-step reasoning and agent messages
+- ✅ **Optional LLM** - Supports OpenAI GPT-4 (set OPENAI_API_KEY)
+- ⚠️ **Works Without LLM** - Rule-based system is fully functional
 
 ### 🔲 Left Sidebar (Policy & Development) - NOT STARTED
 
@@ -139,28 +144,37 @@ curl http://localhost:3000/api/regions
 curl http://localhost:3000/api/risk/rankings
 
 # Analyze specific region
-curl http://localhost:3000/api/risk/vancouver
+curl http://localhost:3000/api/risk/kamloops
 
 # Run full pipeline
 curl -X POST http://localhost:3000/api/pipeline \
   -H "Content-Type: application/json" \
   -d '{"action": "full"}'
+
+# Run 3-agent crew analysis
+curl -X POST http://localhost:3000/api/crew \
+  -H "Content-Type: application/json" \
+  -d '{"regionId": "kamloops"}'
 ```
 
 ---
 
 ## Important Notes
 
-### Current Implementation is Rule-Based
+### Multi-Agent System
 
-The "Insurance Risk Analyst" uses **hardcoded formulas**, not actual AI:
+**3 specialized agents** work together:
 
-```typescript
-// Current approach
-wildfireExposure = (fireCount * 0.3 + avgFireSize * 0.4) * severity;
+1. **Data Analyst** - Validates data quality
+2. **Insurance Risk Analyst** - Calculates risk scores
+3. **Mitigation Strategist** - Develops action plans
+
+**LLM Integration (Optional):**
+```bash
+export OPENAI_API_KEY="sk-..."  # Enables GPT-4 for recommendations
 ```
 
-To upgrade to real AI, integrate OpenAI/Anthropic API and CrewAI/LangGraph SDK.
+System works perfectly **without LLM** using rule-based logic.
 
 ---
 
@@ -201,6 +215,7 @@ npm run lint
 
 ## Documentation
 
+- `MULTI_AGENT_SYSTEM.md` - Complete 3-agent system guide
 - `TODO.md` - Detailed task breakdown
 - `BUG_FIXES.md` - Recent bug fixes (4 bugs fixed Jan 2026)
 

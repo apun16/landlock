@@ -74,16 +74,37 @@ export class InsuranceRiskAnalystAgent {
   private config: AgentConfig;
   private currentTask: AgentTask | null = null;
   private conclusions: AgentConclusion[] = [];
+  private messageHistory: any[] = [];
 
   constructor(config: AgentConfig = INSURANCE_RISK_ANALYST_CONFIG) {
     this.config = config;
   }
 
+  getConfig(): AgentConfig {
+    return this.config;
+  }
+
+  getMessageHistory(): any[] {
+    return this.messageHistory;
+  }
+
   async analyzeRegion(regionId: string): Promise<{ riskScore: RiskScore; report: RiskReport; conclusions: AgentConclusion[] }> {
     this.conclusions = [];
+    this.messageHistory = [];
     
     const region = stateManager.getRegion(regionId);
     if (!region) throw new Error(`Region ${regionId} not found`);
+
+    this.messageHistory.push({
+      agentId: this.config.id,
+      agentName: this.config.name,
+      timestamp: new Date(),
+      reasoning: `Analyzing insurance risk for ${region.regionName} with ${region.hazardData.historicalFires.length} fire records`,
+      action: 'analyze_region',
+      input: { regionId },
+      output: null,
+      nextAgent: 'mitigation-strategist'
+    });
 
     const exposureAnalysis = await this.assessWildfireExposure(region.hazardData.historicalFires);
     const lossAnalysis = await this.analyzeHistoricalLosses(region.hazardData.fireStatistics);
