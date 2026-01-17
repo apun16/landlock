@@ -1,18 +1,20 @@
-import Image from "next/image";
+'use client';
+
+import dynamic from 'next/dynamic';
+
+// Dynamically import the map component to avoid SSR issues with Leaflet
+const HazardMap = dynamic(() => import('@/components/HazardMap'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex h-screen w-full items-center justify-center bg-zinc-950">
+      <div className="flex flex-col items-center gap-4">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-red-500" />
+        <p className="text-zinc-400">Initializing map...</p>
+      </div>
+    </div>
+  ),
+});
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl leading-10 tracking-tight text-black dark:text-zinc-50" style={{ fontFamily: 'var(--font-charis)' }}>
-            landlock
-          </h1>
-          <p className="max-w-xs leading-10 tracking-tight text-black dark:text-zinc-50" style={{ fontFamily: 'var(--font-poppins)' }}>
-            helping you understand your urban risk exposure
-          </p>
-        </div>
-      </main>
-    </div>
-  );
+  return <HazardMap />;
 }

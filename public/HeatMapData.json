@@ -1,0 +1,8302 @@
+{
+    "groupDetail": {
+        "label": "Exposure to different types of natural disasters varies by region across Canada",
+        "description": "Multi-hazard exposure index, by forward sortation area\n\nMulti hazard exposure\n\n5-High exposure to 3 or more disasters\n\n4-High exposure to 2 disastersn\n\n3-High exposure to 1 disaster\n\n2-Medium exposure to 1 or more disasters\n\n1-Low exposure to all disasters\n\nClusters\n\nA-Higher exposure to disasters and higher indebtedness\n\nB-Moderate exposure to disasters and limited access to credit\n\nC-Lower exposure to disasters and lower financial vulenrabilities\n\nSources: Canadian Disaster Database and Bank of Canada calculations",
+        "link": "https://www.bankofcanada.ca/?p=222421"
+    },
+    "terms": {
+        "url": "https://www.bankofcanada.ca/terms/"
+    },
+    "observations": [
+		{										
+		"FSA": "V2S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "G8B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G4Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L4M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L4N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E2A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K8N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K8R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K8V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R7A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R7B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R7C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N3L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N3T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K6T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K6V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T2A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T2B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T2C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T2E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T2J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T2L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T2N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T2Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T3B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T3K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T3L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T3P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T3S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T3T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T3Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T4A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E3N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B1A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B1K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K7C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "C0A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "C1A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "C1B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "C1C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "C1E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "K9A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T9M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L9Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A2H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K6H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K6J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K6K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V1G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G8L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T4X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T5A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T5P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T5S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T5Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T6X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T6Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T7X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T7Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T8R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T9E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P5A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V1J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E3E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J8L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J8M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J8N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J8R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J8Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A2A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A2B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P3A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P3B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P3C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P3E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P3G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P3L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P3N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P3P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P3Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B2R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B2T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B2V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "B3J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B3K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B3M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B3Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B4A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B4B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B4C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L0R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L3M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L8J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L8M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L8N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L8S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L8W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K6A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J6E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V2C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K9V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V4T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P9N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B4N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K0H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N8H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T9V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S9V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N0L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N5W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N5X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N5Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N6A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N6C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N6P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G4W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L4R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E1N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A2N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A8A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B1X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B2G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "C0B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E5C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G5H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J0Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J0Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J9T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K7H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P1L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P1P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P2B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P5E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R0K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S0J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "T4G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V0H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V0K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V0P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V0W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V0X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V8C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V8E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "E1A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H1C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H1H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H1J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H1R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H1S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H1T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H1Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H2A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H2B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H2P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H2W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H2Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H3N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H3P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H3T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H3X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H3Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H3Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H4L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H4M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H4N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H4T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H4W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H4Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H4Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H5B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H7Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H8N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H8R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "H8S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H8T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H8Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H8Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "H9X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J4V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J4Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J5R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J7N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J7Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S6H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S6J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S6K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "B0K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "H0M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V0T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N0A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N0E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S9A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P1A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P1B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P1C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L3V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L1J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L1K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "K0A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K1Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K2W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K4R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "K8A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K8B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "K8H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "K9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K9J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K9K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K9L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V9Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R1N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V8A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S6V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S6W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S6X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V2L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V2M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V2N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V8J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G1Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G2N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S2V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S4Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G5L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E2E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E2G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E2S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G5Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J6T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "N0N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N7V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S7B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S7C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S7M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S7N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S7S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "S7W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P6A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P6B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P6C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G4R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G4S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G9N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V8B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L0S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L2G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L2R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L2S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L2V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L2W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L3B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "L3C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L3K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A1A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A1B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A1K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A1L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A1N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A1X",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R5G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T1P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B2S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B4P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "E4B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E4Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E6B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E9H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G0P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G3M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G7P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J1S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J2N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J3M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J5J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J8G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "K7R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N1A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N3W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T1S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T4E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "T4M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V0R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "C1N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V8G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "X0A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "X0B",
+		"Multi-hazard exposure": 1,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "X0C",
+		"Multi-hazard exposure": 1,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "X0E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "X0G",
+		"Multi-hazard exposure": 1,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "Y0A",
+		"Multi-hazard exposure": 1,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "Y0B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G6G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R8N",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P7A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P7B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P7C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P7E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P7G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P7J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P7K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P7L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P4N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P4P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P4R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L0H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L0P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L1Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L1Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L3Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L4S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L4Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L5T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L5W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L6L",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6M",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L6P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6S",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6W",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6X",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6Y",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L6Z",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L7A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L7B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L7C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L7E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L7G",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L7K",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L9E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L9N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L9P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "L9W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "M1B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M1X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M2R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M3N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M4Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "M5M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M5X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "M6A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M6S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M7A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M8V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M8W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M8X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M8Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M8Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "M9W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "G8T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G9B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "B2N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B6L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J9P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V2Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V3Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V4W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V5Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V6Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V7Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V1B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V1T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V8L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V8Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "V9Z",
+		"Multi-hazard exposure": 5,
+		"Cluster": "A"
+		},
+		{
+		"FSA": "G6P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6R",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "L9Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "A0C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A0R",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A2V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "A5A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0C",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B0W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B5A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "B9A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E1W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3Y",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E3Z",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E5G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E7P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "E8T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G0E",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G4A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G4T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G4V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "G4X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G5A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G6B",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "G9X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J0M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "J9L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "J9V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N2Z",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N7A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P0P",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P0X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P1H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P2A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P2N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P5N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P8N",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "P8T",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "P9A",
+		"Multi-hazard exposure": 2,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0B",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0L",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R0M",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R7N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R8A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R9A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0H",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S0P",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S9X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0J",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T4T",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7E",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7S",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T7V",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T8S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9W",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V0B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V0J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V1K",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "V1R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9A",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S4H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "Y1A",
+		"Multi-hazard exposure": 1,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "V2G",
+		"Multi-hazard exposure": 4,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N0R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N8V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N8W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N8X",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N8Y",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N9A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N9B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N9E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9H",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9J",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N9V",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R6M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R6W",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R1B",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R1C",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2E",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R2P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R2Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3A",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3B",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3C",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3E",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3G",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3H",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3J",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3K",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3L",
+		"Multi-hazard exposure": 5,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R3M",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3N",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3P",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3R",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3S",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3T",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3V",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3W",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3X",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R3Y",
+		"Multi-hazard exposure": 5,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R4A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R4G",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R4H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R4J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R4L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5A",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5L",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "R5M",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5R",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "R5T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T0P",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9H",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9J",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "T9K",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N4S",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "N4T",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N4V",
+		"Multi-hazard exposure": 3,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "N5C",
+		"Multi-hazard exposure": 2,
+		"Cluster": "C"
+		},
+		{
+		"FSA": "X1A",
+		"Multi-hazard exposure": 1,
+		"Cluster": "B"
+		},
+		{
+		"FSA": "S3N",
+		"Multi-hazard exposure": 3,
+		"Cluster": "B"
+		}
+	]
+}
