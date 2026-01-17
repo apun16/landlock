@@ -54,10 +54,10 @@ GET /api/regions?type=municipality
 
 # Response (BEFORE FIX)
 {
-  "regions": [10 municipalities],  # Array length: 10
+  "regions": [9 municipalities],  # Array length: 9
   "counts": {
-    "total": 16,                    # Wrong! Includes 6 fire centres
-    "municipalities": 10,
+    "total": 15,                    # Wrong! Includes 6 fire centres
+    "municipalities": 9,
     "fireCentres": 6
   }
 }

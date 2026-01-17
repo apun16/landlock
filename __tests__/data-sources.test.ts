@@ -78,12 +78,12 @@ describe('Data Sources', () => {
     });
 
     it('should have major BC municipalities', () => {
-      expect(BC_MAJOR_MUNICIPALITIES.length).toBe(10);
+      expect(BC_MAJOR_MUNICIPALITIES.length).toBe(1);
       
-      const vancouver = BC_MAJOR_MUNICIPALITIES.find(m => m.id === 'vancouver');
-      expect(vancouver).toBeDefined();
-      expect(vancouver?.population).toBeGreaterThan(600000);
-      expect(vancouver?.regionalDistrict).toBe('Metro Vancouver');
+      const kamloops = BC_MAJOR_MUNICIPALITIES.find(m => m.id === 'kamloops');
+      expect(kamloops).toBeDefined();
+      expect(kamloops?.population).toBeGreaterThan(90000);
+      expect(kamloops?.regionalDistrict).toBe('Thompson-Nicola');
     });
 
     it('should have major historical wildfires', () => {

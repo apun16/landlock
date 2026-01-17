@@ -311,16 +311,7 @@ export const BC_FIRE_CENTRES = [
 ] as const;
 
 export const BC_MAJOR_MUNICIPALITIES = [
-  { id: 'vancouver', name: 'Vancouver', population: 662248, regionalDistrict: 'Metro Vancouver' },
-  { id: 'surrey', name: 'Surrey', population: 568322, regionalDistrict: 'Metro Vancouver' },
-  { id: 'burnaby', name: 'Burnaby', population: 249125, regionalDistrict: 'Metro Vancouver' },
-  { id: 'richmond', name: 'Richmond', population: 209937, regionalDistrict: 'Metro Vancouver' },
-  { id: 'victoria', name: 'Victoria', population: 91867, regionalDistrict: 'Capital' },
-  { id: 'kelowna', name: 'Kelowna', population: 144576, regionalDistrict: 'Central Okanagan' },
-  { id: 'kamloops', name: 'Kamloops', population: 97902, regionalDistrict: 'Thompson-Nicola' },
-  { id: 'nanaimo', name: 'Nanaimo', population: 99863, regionalDistrict: 'Nanaimo' },
-  { id: 'prince-george', name: 'Prince George', population: 76708, regionalDistrict: 'Fraser-Fort George' },
-  { id: 'chilliwack', name: 'Chilliwack', population: 93203, regionalDistrict: 'Fraser Valley' }
+  { id: 'kamloops', name: 'Kamloops', population: 97902, regionalDistrict: 'Thompson-Nicola' }
 ] as const;
 
 export const MAJOR_BC_WILDFIRES = [
