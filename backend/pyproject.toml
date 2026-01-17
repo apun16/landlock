@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "landlock-backend"
+version = "0.1.0"
+description = "Backend for Landlock geospatial planning app - Left Panel (Policy & Development)"
+authors = ["Landlock Team"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=backend --cov-report=term-missing"
+asyncio_mode = "auto"
