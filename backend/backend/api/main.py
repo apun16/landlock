@@ -127,6 +127,65 @@ async def get_sources(region_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@app.post("/api/v1/demo/{region_id}")
+async def get_demo_analysis(region_id: str):
+    """Returns demo data for testing the frontend without scraping"""
+    from datetime import datetime
+    return {
+        "region_id": region_id,
+        "budget_analysis": {
+            "funding_strength_score": 72,
+            "key_allocations": [
+                {"key": "Infrastructure", "value": "45M", "unit": "CAD", "timeframe": "2024"},
+                {"key": "Emergency Services", "value": "12M", "unit": "CAD", "timeframe": "2024"},
+                {"key": "Parks & Recreation", "value": "8M", "unit": "CAD", "timeframe": "2024"}
+            ],
+            "confidence": 0.85,
+            "evidence_count": 12,
+            "citation_ids": []
+        },
+        "policy_analysis": {
+            "zoning_flexibility_score": 58,
+            "proposal_momentum_score": 65,
+            "approval_friction_factors": [
+                "Environmental review required for developments >5 acres",
+                "Heritage overlay in downtown core",
+                "Agricultural land reserve restrictions"
+            ],
+            "constraints": [
+                "Water supply limitations in north sector",
+                "Wildfire interface zone building codes"
+            ],
+            "confidence": 0.78,
+            "evidence_count": 8,
+            "citation_ids": []
+        },
+        "underwriter_analysis": {
+            "feasibility_score": 67,
+            "verdict": "caution",
+            "plan_variant": "B",
+            "pros": [
+                {"text": "Strong municipal funding for infrastructure"},
+                {"text": "Growing population with housing demand"},
+                {"text": "Established transportation corridors"}
+            ],
+            "cons": [
+                {"text": "Wildfire risk in interface areas"},
+                {"text": "Water supply constraints during peak summer"},
+                {"text": "Heritage restrictions limit density options"}
+            ],
+            "constraints": [
+                {"text": "Must maintain 30m setback from watercourses"},
+                {"text": "FireSmart compliance required"}
+            ],
+            "confidence": 0.82,
+            "evidence_count": 15,
+            "citation_ids": []
+        },
+        "generated_at": datetime.now().isoformat()
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(

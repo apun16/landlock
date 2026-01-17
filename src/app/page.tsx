@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Hero, Navigation, Features } from '@/components/landing';
+import { LeftSidebar } from '@/components/left-sidebar';
+import { RightSidebar } from '@/components/right-sidebar';
 
 const HazardMap = dynamic(() => import('@/components/HazardMap'), {
   ssr: false,
@@ -19,6 +21,9 @@ const HazardMap = dynamic(() => import('@/components/HazardMap'), {
 export default function Home() {
   const [showMap, setShowMap] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(true);
+  const [selectedRegionId, setSelectedRegionId] = useState<string | undefined>();
   const mapSectionRef = useRef<HTMLDivElement>(null);
 
   const handleExplore = () => {
@@ -38,6 +43,10 @@ export default function Home() {
     }, 600);
   };
 
+  const handleRegionSelect = (regionId: string) => {
+    setSelectedRegionId(regionId);
+  };
+
   useEffect(() => {
     if (showMap) {
       document.body.style.overflow = 'hidden';
@@ -49,55 +58,230 @@ export default function Home() {
 
   if (showMap) {
     return (
-      <div className={`map-view ${isTransitioning ? 'map-view--transitioning' : ''}`}>
-        <button className="back-button" onClick={handleBack}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          <span>Back to Home</span>
-        </button>
-        <HazardMap />
+      <div className={`app-layout ${isTransitioning ? 'app-layout--transitioning' : ''}`}>
+        {/* Left Sidebar - Policy & Development */}
+        <div className={`sidebar-container sidebar-container--left ${leftSidebarOpen ? 'sidebar-container--open' : ''}`}>
+          {leftSidebarOpen && <LeftSidebar selectedRegionId={selectedRegionId} />}
+          <button 
+            className="sidebar-toggle sidebar-toggle--left" 
+            onClick={() => setLeftSidebarOpen(!leftSidebarOpen)}
+            title={leftSidebarOpen ? 'Hide Policy Panel' : 'Show Policy Panel'}
+          >
+            {leftSidebarOpen ? '◀' : '▶'}
+          </button>
+        </div>
+
+        {/* Main Map Area */}
+        <div className="map-container">
+          <div className="map-header">
+            <button className="back-button" onClick={handleBack}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+              <span>Home</span>
+            </button>
+            <h1 className="map-title">LandLock</h1>
+            <div className="map-actions">
+              <button 
+                className={`panel-toggle ${leftSidebarOpen ? 'panel-toggle--active' : ''}`}
+                onClick={() => setLeftSidebarOpen(!leftSidebarOpen)}
+              >
+                Policy
+              </button>
+              <button 
+                className={`panel-toggle ${rightSidebarOpen ? 'panel-toggle--active' : ''}`}
+                onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
+              >
+                Risk
+              </button>
+            </div>
+          </div>
+          <HazardMap />
+        </div>
+
+        {/* Right Sidebar - Finance & Insurance */}
+        <div className={`sidebar-container sidebar-container--right ${rightSidebarOpen ? 'sidebar-container--open' : ''}`}>
+          <button 
+            className="sidebar-toggle sidebar-toggle--right" 
+            onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
+            title={rightSidebarOpen ? 'Hide Risk Panel' : 'Show Risk Panel'}
+          >
+            {rightSidebarOpen ? '▶' : '◀'}
+          </button>
+          {rightSidebarOpen && <RightSidebar selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />}
+        </div>
+
         <style jsx>{`
-          .map-view {
+          .app-layout {
             position: fixed;
             inset: 0;
-            z-index: 200;
+            display: flex;
+            background: #09090b;
             animation: fadeIn 0.6s ease-out;
           }
-          .map-view--transitioning {
+          .app-layout--transitioning {
             animation: fadeOut 0.6s ease-out forwards;
           }
-          .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
+
+          .sidebar-container {
+            position: relative;
+            height: 100vh;
+            transition: width 0.3s ease, margin 0.3s ease;
+            z-index: 100;
+          }
+          .sidebar-container--left {
+            width: 0;
+          }
+          .sidebar-container--left.sidebar-container--open {
+            width: 380px;
+          }
+          .sidebar-container--right {
+            width: 0;
+          }
+          .sidebar-container--right.sidebar-container--open {
+            width: 380px;
+          }
+
+          .sidebar-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 48px;
+            background: rgba(9, 9, 11, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a1a1aa;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 101;
+          }
+          .sidebar-toggle:hover {
+            background: rgba(39, 39, 42, 0.95);
+            color: #fafafa;
+          }
+          .sidebar-toggle--left {
+            right: -24px;
+            border-radius: 0 8px 8px 0;
+            border-left: none;
+          }
+          .sidebar-toggle--right {
+            left: -24px;
+            border-radius: 8px 0 0 8px;
+            border-right: none;
+          }
+
+          .map-container {
+            flex: 1;
+            position: relative;
+            height: 100vh;
+            min-width: 0;
+          }
+
+          .map-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: linear-gradient(180deg, rgba(9, 9, 11, 0.95) 0%, rgba(9, 9, 11, 0.8) 70%, transparent 100%);
+            pointer-events: none;
+          }
+          .map-header > * {
+            pointer-events: auto;
+          }
+
+          .back-button {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
             background: rgba(9, 9, 11, 0.9);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            border-radius: 10px;
             color: #fafafa;
             font-family: var(--font-poppins), sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: all 0.2s ease;
           }
           .back-button:hover {
             background: rgba(39, 39, 42, 0.9);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateX(-2px);
           }
+
+          .map-title {
+            font-family: var(--font-charis), serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin: 0;
+          }
+
+          .map-actions {
+            display: flex;
+            gap: 8px;
+          }
+
+          .panel-toggle {
+            padding: 10px 16px;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #6b7280;
+            font-family: var(--font-poppins), sans-serif;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          }
+          .panel-toggle:hover {
+            background: rgba(39, 39, 42, 0.9);
+            color: #a1a1aa;
+          }
+          .panel-toggle--active {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: #10b981;
+          }
+          .panel-toggle--active:hover {
+            background: rgba(16, 185, 129, 0.25);
+          }
+
           @keyframes fadeIn {
-            from { opacity: 0; transform: scale(1.02); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; }
+            to { opacity: 1; }
           }
           @keyframes fadeOut {
-            from { opacity: 1; transform: scale(1); }
-            to { opacity: 0; transform: scale(0.98); }
+            from { opacity: 1; }
+            to { opacity: 0; }
+          }
+
+          @media (max-width: 1200px) {
+            .sidebar-container--left.sidebar-container--open,
+            .sidebar-container--right.sidebar-container--open {
+              width: 320px;
+            }
+          }
+
+          @media (max-width: 900px) {
+            .sidebar-container--left.sidebar-container--open {
+              position: absolute;
+              left: 0;
+              width: 100%;
+              max-width: 380px;
+            }
+            .sidebar-container--right.sidebar-container--open {
+              position: absolute;
+              right: 0;
+              width: 100%;
+              max-width: 380px;
+            }
           }
         `}</style>
       </div>
