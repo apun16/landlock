@@ -136,6 +136,7 @@ export default function HazardMap({ onPostalSearch }: { onPostalSearch?: (region
 
       circle.on('click', () => {
         setSelectedPoint(point);
+        onPostalSearch?.(point.fsa);
       });
 
       circle.addTo(map);

@@ -7,351 +7,319 @@ interface HeroProps {
 }
 
 export function Hero({ onExplore }: HeroProps) {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [time, setTime] = useState('');
+  const [coords] = useState({ lat: '50.6745° N', lon: '120.3273° W' });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
+    const updateTime = () => {
+      const now = new Date();
+      setTime(now.toISOString().slice(11, 19) + ' UTC');
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="hero">
-      <div className="hero__bg">
-        <div className="hero__gradient" style={{ transform: `translate(${mousePos.x * 30}px, ${mousePos.y * 30}px)` }} />
-        <div className="hero__grid" />
-        <div className="hero__noise" />
-      </div>
+      <div className="hero__topo" />
+      
+      <div className="hero__grid">
+        <div className="hero__meta">
+          <div className="hero__meta-item">
+            <span className="hero__meta-label">COORDINATES</span>
+            <span className="hero__meta-value">{coords.lat}</span>
+            <span className="hero__meta-value">{coords.lon}</span>
+          </div>
+          <div className="hero__meta-item">
+            <span className="hero__meta-label">TIMESTAMP</span>
+            <span className="hero__meta-value">{time}</span>
+          </div>
+          <div className="hero__meta-item">
+            <span className="hero__meta-label">STATUS</span>
+            <span className="hero__meta-value hero__meta-value--active">● OPERATIONAL</span>
+          </div>
+        </div>
 
-      <div className="hero__content hero__content--visible">
-        <h1 className="hero__title">
-          <span className="hero__title-line">Understand Your</span>
-          <span className="hero__title-accent">Urban Risk</span>
-        </h1>
+        <div className="hero__main">
+          <div className="hero__tag">RISK INTELLIGENCE SYSTEM</div>
+          
+          <h1 className="hero__title">
+            <span>LAND</span>
+            <span className="hero__title-accent">LOCK</span>
+          </h1>
+          
+          <p className="hero__desc">
+            Geospatial wildfire risk assessment for British Columbia. 
+            Multi-agent analysis of hazard exposure, insurance implications, 
+            and mitigation strategies.
+          </p>
 
-        <p className="hero__subtitle">
-          Analyze wildfire exposure, insurance risks, and development patterns across Canada. 
-          Make informed decisions with multi-agent AI analysis.
-        </p>
+          <div className="hero__data">
+            <div className="hero__data-row">
+              <span className="hero__data-key">coverage</span>
+              <span className="hero__data-dots" />
+              <span className="hero__data-val">1,647 FSA regions</span>
+            </div>
+            <div className="hero__data-row">
+              <span className="hero__data-key">analysis</span>
+              <span className="hero__data-dots" />
+              <span className="hero__data-val">3 autonomous agents</span>
+            </div>
+            <div className="hero__data-row">
+              <span className="hero__data-key">data_sources</span>
+              <span className="hero__data-dots" />
+              <span className="hero__data-val">BC Gov, CWFIS, StatsCan</span>
+            </div>
+          </div>
 
-        <div className="hero__actions">
-          <button className="hero__cta" onClick={onExplore}>
-            <span>Explore Map</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+          <button className="hero__btn" onClick={onExplore}>
+            <span className="hero__btn-text">INITIALIZE SYSTEM</span>
+            <span className="hero__btn-icon">→</span>
           </button>
         </div>
 
-        <div className="hero__stats">
-          <div className="hero__stat">
-            <span className="hero__stat-value">1,600+</span>
-            <span className="hero__stat-label">Regions</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-value">5</span>
-            <span className="hero__stat-label">Risk Levels</span>
-          </div>
-          <div className="hero__stat-divider" />
-          <div className="hero__stat">
-            <span className="hero__stat-value">3</span>
-            <span className="hero__stat-label">Agents</span>
+        <div className="hero__sidebar">
+          <div className="hero__risk-levels">
+            <div className="hero__risk-title">RISK CLASSIFICATION</div>
+            <div className="hero__risk-item">
+              <span className="hero__risk-bar hero__risk-bar--5" />
+              <span>EXTREME</span>
+            </div>
+            <div className="hero__risk-item">
+              <span className="hero__risk-bar hero__risk-bar--4" />
+              <span>HIGH</span>
+            </div>
+            <div className="hero__risk-item">
+              <span className="hero__risk-bar hero__risk-bar--3" />
+              <span>MODERATE</span>
+            </div>
+            <div className="hero__risk-item">
+              <span className="hero__risk-bar hero__risk-bar--2" />
+              <span>LOW</span>
+            </div>
+            <div className="hero__risk-item">
+              <span className="hero__risk-bar hero__risk-bar--1" />
+              <span>MINIMAL</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <button className="hero__scroll" onClick={onExplore}>
-        <span>Scroll to explore</span>
-        <div className="hero__scroll-indicator">
-          <div className="hero__scroll-dot" />
-        </div>
-      </button>
-
       <style jsx>{`
         .hero {
-          position: relative;
           min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
+          position: relative;
+          background: var(--background);
           overflow: hidden;
-          padding: 80px 24px 40px;
         }
 
-        .hero__bg {
+        .hero__topo {
           position: absolute;
           inset: 0;
-          z-index: 0;
-        }
-
-        .hero__gradient {
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: radial-gradient(ellipse at 30% 20%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
-                      radial-gradient(ellipse at 70% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                      radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
-          transition: transform 0.3s ease-out;
+          opacity: 0.04;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cpath d='M0 200 Q100 150 200 200 T400 200' fill='none' stroke='%23c4a35a' stroke-width='0.5'/%3E%3Cpath d='M0 180 Q100 130 200 180 T400 180' fill='none' stroke='%23c4a35a' stroke-width='0.5'/%3E%3Cpath d='M0 220 Q100 170 200 220 T400 220' fill='none' stroke='%23c4a35a' stroke-width='0.5'/%3E%3Cpath d='M0 160 Q100 110 200 160 T400 160' fill='none' stroke='%23c4a35a' stroke-width='0.5'/%3E%3Cpath d='M0 240 Q100 190 200 240 T400 240' fill='none' stroke='%23c4a35a' stroke-width='0.5'/%3E%3C/svg%3E");
+          background-size: 400px 400px;
         }
 
         .hero__grid {
-          position: absolute;
-          inset: 0;
-          background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-          background-size: 60px 60px;
-          mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-        }
-
-        .hero__noise {
-          position: absolute;
-          inset: 0;
-          background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-          opacity: 0.03;
-          pointer-events: none;
-        }
-
-        .hero__content {
+          display: grid;
+          grid-template-columns: 200px 1fr 180px;
+          min-height: 100vh;
+          max-width: 1400px;
+          margin: 0 auto;
           position: relative;
-          z-index: 1;
-          text-align: center;
-          max-width: 900px;
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .hero__content--visible {
-          opacity: 1;
-          transform: translateY(0);
+        .hero__meta {
+          padding: 80px 24px;
+          border-right: 1px solid var(--border);
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
         }
 
-        .hero__badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 16px;
-          background: rgba(220, 38, 38, 0.1);
-          border: 1px solid rgba(220, 38, 38, 0.2);
-          border-radius: 100px;
-          font-size: 0.8rem;
-          color: #fca5a5;
-          margin-bottom: 32px;
-          animation: fadeInUp 0.8s ease-out 0.2s both;
+        .hero__meta-item {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
         }
 
-        .hero__badge-dot {
-          width: 8px;
-          height: 8px;
-          background: #ef4444;
-          border-radius: 50%;
-          animation: pulse 2s ease-in-out infinite;
+        .hero__meta-label {
+          font-size: 10px;
+          color: var(--muted);
+          letter-spacing: 0.15em;
+        }
+
+        .hero__meta-value {
+          font-size: 12px;
+          color: var(--foreground);
+        }
+
+        .hero__meta-value--active {
+          color: #4ade80;
+        }
+
+        .hero__main {
+          padding: 120px 64px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .hero__tag {
+          font-size: 11px;
+          letter-spacing: 0.2em;
+          color: var(--accent);
+          margin-bottom: 24px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid var(--border);
+          display: inline-block;
         }
 
         .hero__title {
-          font-family: var(--font-charis), serif;
-          font-size: clamp(3rem, 8vw, 6rem);
-          font-weight: 700;
-          line-height: 1.05;
+          font-size: clamp(48px, 10vw, 96px);
+          font-weight: 400;
           letter-spacing: -0.03em;
-          margin: 0 0 24px;
+          margin: 0 0 32px;
+          line-height: 0.9;
         }
 
-        .hero__title-line {
+        .hero__title span {
           display: block;
-          color: #fafafa;
-          animation: fadeInUp 0.8s ease-out 0.3s both;
         }
 
         .hero__title-accent {
-          display: block;
-          background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #ef4444 100%);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: fadeInUp 0.8s ease-out 0.4s both, gradientShift 8s ease-in-out infinite;
+          color: var(--accent);
         }
 
-        .hero__subtitle {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: clamp(1rem, 2vw, 1.25rem);
-          color: #a1a1aa;
-          line-height: 1.7;
-          max-width: 600px;
-          margin: 0 auto 40px;
-          animation: fadeInUp 0.8s ease-out 0.5s both;
+        .hero__desc {
+          font-size: 14px;
+          color: var(--muted);
+          max-width: 480px;
+          margin-bottom: 48px;
+          line-height: 1.8;
         }
 
-        .hero__actions {
+        .hero__data {
+          margin-bottom: 48px;
+          padding: 24px;
+          background: var(--surface);
+          border: 1px solid var(--border);
+        }
+
+        .hero__data-row {
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 16px;
-          margin-bottom: 60px;
-          animation: fadeInUp 0.8s ease-out 0.6s both;
+          padding: 8px 0;
+          border-bottom: 1px dashed var(--border);
+          font-size: 12px;
         }
 
-        .hero__cta {
+        .hero__data-row:last-child {
+          border-bottom: none;
+        }
+
+        .hero__data-key {
+          color: var(--accent-dim);
+          min-width: 120px;
+        }
+
+        .hero__data-dots {
+          flex: 1;
+          height: 1px;
+          background: repeating-linear-gradient(90deg, var(--border) 0, var(--border) 2px, transparent 2px, transparent 6px);
+          margin: 0 12px;
+        }
+
+        .hero__data-val {
+          color: var(--foreground);
+        }
+
+        .hero__btn {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
+          gap: 16px;
           padding: 16px 32px;
-          background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-          border: none;
-          border-radius: 0;
-          color: white;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1rem;
-          font-weight: 600;
+          background: transparent;
+          border: 1px solid var(--accent);
+          color: var(--accent);
+          font-family: inherit;
+          font-size: 12px;
+          letter-spacing: 0.15em;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: all 0.2s ease;
+          width: fit-content;
         }
 
-        .hero__cta:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+        .hero__btn:hover {
+          background: var(--accent);
+          color: var(--background);
         }
 
-        .hero__cta svg {
-          transition: transform 0.3s ease;
+        .hero__btn-icon {
+          font-size: 18px;
+          transition: transform 0.2s ease;
         }
 
-        .hero__cta:hover svg {
+        .hero__btn:hover .hero__btn-icon {
           transform: translateX(4px);
         }
 
-        .hero__secondary {
-          padding: 16px 32px;
-          background: transparent;
-          border: 1px solid rgba(255, 255, 255, 0.15);
-          border-radius: 12px;
-          color: #d1d5db;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1rem;
-          font-weight: 500;
-          text-decoration: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-
-        .hero__secondary:hover {
-          background: rgba(255, 255, 255, 0.05);
-          border-color: rgba(255, 255, 255, 0.25);
-        }
-
-        .hero__stats {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 32px;
-          animation: fadeInUp 0.8s ease-out 0.7s both;
-        }
-
-        .hero__stat {
-          text-align: center;
-        }
-
-        .hero__stat-value {
-          display: block;
-          font-family: var(--font-charis), serif;
-          font-size: 2rem;
-          font-weight: 700;
-          color: #fafafa;
-        }
-
-        .hero__stat-label {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.8rem;
-          color: #71717a;
-        }
-
-        .hero__stat-divider {
-          width: 1px;
-          height: 40px;
-          background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        }
-
-        .hero__scroll {
-          position: absolute;
-          bottom: 80px;
-          left: 50%;
-          transform: translateX(-50%);
+        .hero__sidebar {
+          padding: 80px 24px;
+          border-left: 1px solid var(--border);
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          background: none;
-          border: none;
-          color: #71717a;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.75rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          cursor: pointer;
-          transition: color 0.3s ease;
-          animation: fadeIn 1s ease-out 1s both;
+          justify-content: flex-end;
         }
 
-        .hero__scroll:hover {
-          color: #a1a1aa;
-        }
-
-        .hero__scroll-indicator {
-          width: 24px;
-          height: 40px;
-          border: 2px solid rgba(255, 255, 255, 0.2);
-          border-radius: 12px;
+        .hero__risk-levels {
           display: flex;
-          justify-content: center;
-          padding-top: 8px;
+          flex-direction: column;
+          gap: 8px;
         }
 
-        .hero__scroll-dot {
-          width: 4px;
+        .hero__risk-title {
+          font-size: 10px;
+          letter-spacing: 0.15em;
+          color: var(--muted);
+          margin-bottom: 8px;
+        }
+
+        .hero__risk-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 10px;
+          letter-spacing: 0.1em;
+          color: var(--muted);
+        }
+
+        .hero__risk-bar {
+          width: 24px;
           height: 8px;
-          background: #ef4444;
-          border-radius: 2px;
-          animation: scrollBounce 2s ease-in-out infinite;
         }
 
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(30px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
+        .hero__risk-bar--5 { background: #dc2626; }
+        .hero__risk-bar--4 { background: #f97316; }
+        .hero__risk-bar--3 { background: #eab308; }
+        .hero__risk-bar--2 { background: #22c55e; }
+        .hero__risk-bar--1 { background: #3b82f6; }
 
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.5; transform: scale(1.2); }
-        }
-
-        @keyframes gradientShift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
-        @keyframes scrollBounce {
-          0%, 100% { transform: translateY(0); opacity: 1; }
-          50% { transform: translateY(12px); opacity: 0.3; }
-        }
-
-        @media (max-width: 768px) {
-          .hero__stats { flex-wrap: wrap; gap: 24px; }
-          .hero__stat-divider { display: none; }
-          .hero__actions { flex-direction: column; width: 100%; }
-          .hero__cta, .hero__secondary { width: 100%; justify-content: center; }
+        @media (max-width: 1024px) {
+          .hero__grid {
+            grid-template-columns: 1fr;
+          }
+          .hero__meta {
+            display: none;
+          }
+          .hero__sidebar {
+            display: none;
+          }
+          .hero__main {
+            padding: 100px 32px;
+          }
         }
       `}</style>
     </section>

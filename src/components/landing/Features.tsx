@@ -4,622 +4,314 @@ import { useEffect, useRef, useState } from 'react';
 
 const features = [
   {
-    title: 'Multi-Hazard Mapping',
-    description: 'Visualize wildfire, flood, and earthquake exposure across 1,600+ Canadian FSA regions with real-time data.',
+    id: '01',
+    title: 'HAZARD MAPPING',
+    desc: 'Wildfire, flood, and earthquake visualization across 1,647 FSA regions',
   },
   {
-    title: '3-Agent AI Crew',
-    description: 'Data Analyst, Insurance Risk Analyst, and Mitigation Strategist work together to provide comprehensive insights.',
+    id: '02', 
+    title: 'AGENT ANALYSIS',
+    desc: 'Three autonomous agents collaborate for comprehensive risk assessment',
   },
   {
-    title: 'Risk Scoring',
-    description: 'Weighted multi-factor scoring from 0-100 with breakdowns by wildfire exposure, historical loss, and vulnerability.',
+    id: '03',
+    title: 'RISK SCORING',
+    desc: 'Multi-factor weighted scoring from 0-100 with detailed breakdowns',
   },
   {
-    title: 'Cost Projections',
-    description: 'Model insurance costs under baseline, moderate climate, and severe climate scenarios with confidence intervals.',
+    id: '04',
+    title: 'COST MODELING',
+    desc: 'Insurance projections under baseline, moderate, and severe scenarios',
   },
   {
-    title: 'Automated Reports',
-    description: 'Generate explainable risk reports with data sources, methodology, and actionable recommendations.',
+    id: '05',
+    title: 'REPORT GENERATION',
+    desc: 'Automated reports with methodology, sources, and recommendations',
   },
   {
-    title: 'Real-time Pipeline',
-    description: '8-stage automation pipeline for data ingestion, validation, scoring, and report generation.',
-  }
+    id: '06',
+    title: 'DATA PIPELINE',
+    desc: '8-stage automation for ingestion, validation, and scoring',
+  },
+];
+
+const agents = [
+  { name: 'DATA_ANALYST', status: 'validates data quality and completeness' },
+  { name: 'RISK_ANALYST', status: 'calculates insurance risk scores' },
+  { name: 'STRATEGIST', status: 'develops mitigation recommendations' },
 ];
 
 export function Features({ onExplore }: { onExplore: () => void }) {
-  const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
-  const featuresRef = useRef<HTMLDivElement>(null);
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
-
-    const featureObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const index = Number(entry.target.getAttribute('data-index'));
-          setVisibleFeatures((prev) => [...new Set([...prev, index])]);
+          setVisibleItems((prev) => [...new Set([...prev, index])]);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.feature-card').forEach((el) => featureObserver.observe(el));
-
-    return () => { featureObserver.disconnect(); };
+    document.querySelectorAll('.feature-item').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <>
-      <section id="features" className="features">
-        <div className="features__inner">
-          <div className="features__header">
-            <span className="features__label">Capabilities</span>
-            <h2 className="features__title">Everything you need for<br />urban risk intelligence</h2>
-            <p className="features__subtitle">Comprehensive tools for analyzing, visualizing, and acting on hazard data</p>
-          </div>
-          
-          <div className="ai-section__media"> 
-            <div className="media-container">
-              <div className="media-placeholder" onClick={onExplore} > 
-                <img className="media-placeholder__image" src="/images/feature-media.jpg" alt="Feature media" />
-                <div className="media-placeholder__overlay"> 
-                  <div className="media-placeholder__play"> 
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"> 
-                      <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /> 
-                      <rect x="2" y="6" width="20" height="12" /> 
-                      </svg> 
-                      </div> 
-                      <p>Click to explore map</p> 
-                      </div> 
-                      <div className="media-placeholder__border" /> </div> 
-                      </div> 
-          </div>
+    <section ref={sectionRef} className="features">
+      <div className="features__grid">
+        <aside className="features__sidebar">
+          <div className="features__label">SYSTEM MODULES</div>
+          <div className="features__count">06</div>
+        </aside>
 
-          <div ref={featuresRef} className="features__grid">
+        <main className="features__main">
+          <div className="features__list">
             {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className={`feature-card ${visibleFeatures.includes(index) ? 'feature-card--visible' : ''}`}
+              <div
+                key={feature.id}
+                className={`feature-item ${visibleItems.includes(index) ? 'feature-item--visible' : ''}`}
                 data-index={index}
-                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <h3 className="feature-card__title">{feature.title}</h3>
-                <p className="feature-card__desc">{feature.description}</p>
+                <span className="feature-item__id">{feature.id}</span>
+                <div className="feature-item__content">
+                  <h3 className="feature-item__title">{feature.title}</h3>
+                  <p className="feature-item__desc">{feature.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+        </main>
+      </div>
+
+      <div className="agents-section">
+        <div className="agents__header">
+          <span className="agents__label">AGENT CREW</span>
+          <div className="agents__line" />
         </div>
-      </section>
+        
+        <div className="agents__list">
+          {agents.map((agent, i) => (
+            <div key={agent.name} className="agent-row">
+              <span className="agent-row__num">{String(i + 1).padStart(2, '0')}</span>
+              <span className="agent-row__name">{agent.name}</span>
+              <span className="agent-row__dots" />
+              <span className="agent-row__status">{agent.status}</span>
+            </div>
+          ))}
+        </div>
+
+        <button className="features__cta" onClick={onExplore}>
+          <span>LAUNCH INTERFACE</span>
+          <span className="features__cta-arrow">→</span>
+        </button>
+      </div>
 
       <style jsx>{`
-              .ai-section {
-          position: relative;
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 120px 32px;
-          background: #000000;
-          overflow: hidden;
-        }
-
-        .ai-section__bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-
-        .ai-section__grid {
-          position: absolute;
-          inset: 0;
-          background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-          background-size: 100px 100px;
-          opacity: 0.4;
-        }
-
-        .ai-section__shapes {
-          position: absolute;
-          inset: 0;
-        }
-
-        .shape {
-          position: absolute;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .shape--1 {
-          top: 10%;
-          right: 10%;
-          width: 300px;
-          height: 300px;
-          border-left: none;
-          border-bottom: none;
-        }
-
-        .shape--2 {
-          bottom: 20%;
-          left: 15%;
-          width: 200px;
-          height: 200px;
-          border-right: none;
-          border-top: none;
-        }
-
-        .ai-section__inner {
-          position: relative;
-          z-index: 1;
-          max-width: 1400px;
-          width: 100%;
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .ai-section__inner--visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .ai-section__title {
-          font-family: var(--font-charis), serif;
-          font-size: clamp(3rem, 8vw, 6rem);
-          font-weight: 700;
-          line-height: 1.1;
-          letter-spacing: -0.04em;
-          color: #ffffff;
-          margin: 0 0 80px;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 20px;
-          flex-wrap: wrap;
-        }
-
-        .ai-section__title-line {
-          color: rgba(255, 255, 255, 0.3);
-          font-size: 0.3em;
-          letter-spacing: 0.2em;
-        }
-
-        .ai-section__media {
-          width: 100%;
-          max-width: 1200px;
-          margin: 0 auto;
-          margin-bottom: 24px;
-        }
-
-        .media-container {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 16 / 9;
-        }
-
-        .media-placeholder {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          cursor: pointer;
-          transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-          opacity: 1;
-          transform: none;
-        }
-
-        .ai-section__inner--visible .media-placeholder {
-          animation: fadeInScale 1s ease-out 0.3s both;
-        }
-
-        .media-placeholder:hover {
-          border-color: rgba(255, 255, 255, 0.2);
-          transform: scale(1.02);
-        }
-
-        .media-placeholder__image {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: brightness(0.55) contrast(1.05);
-          z-index: 0;
-        }
-
-        .media-placeholder__overlay {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 20px;
-          color: rgba(255, 255, 255, 0.6);
-          transition: all 0.3s ease;
-        }
-
-        .media-placeholder:hover .media-placeholder__overlay {
-          color: rgba(255, 255, 255, 0.9);
-        }
-
-        .media-placeholder__play {
-          width: 80px;
-          height: 80px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          background: rgba(255, 255, 255, 0.05);
-          transition: all 0.3s ease;
-        }
-
-        .media-placeholder:hover .media-placeholder__play {
-          border-color: rgba(255, 255, 255, 0.4);
-          background: rgba(255, 255, 255, 0.1);
-          transform: scale(1.1);
-        }
-
-        .media-placeholder__overlay p {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.9rem;
-          margin: 0;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-        }
-
-        .media-placeholder__border {
-          position: absolute;
-          inset: 0;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          pointer-events: none;
-        }
-
-        .media-placeholder__border::before,
-        .media-placeholder__border::after {
-          content: '';
-          position: absolute;
-          width: 40px;
-          height: 40px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .media-placeholder__border::before {
-          top: 20px;
-          left: 20px;
-          border-right: none;
-          border-bottom: none;
-        }
-
-        .media-placeholder__border::after {
-          bottom: 20px;
-          right: 20px;
-          border-left: none;
-          border-top: none;
-        }
-
-        @keyframes fadeInScale {
-          from { 
-            opacity: 0; 
-            transform: scale(0.95);
-          }
-          to { 
-            opacity: 1; 
-            transform: scale(1);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .ai-section {
-            padding: 80px 24px;
-          }
-          .ai-section__title {
-            margin-bottom: 48px;
-            gap: 12px;
-          }
-          .shape {
-            display: none;
-          }
-        }
-        .features, .agents, .data-sources {
-          padding: 60px 24px;
-          position: relative;
-        }
-
-        .features { background: #09090b; }
-        .agents { background: linear-gradient(180deg, #09090b 0%, #0f0f1a 100%); }
-        .data-sources { background: #0f0f1a; padding: 80px 24px; }
-
-        .features__inner, .agents__inner, .data-sources__inner {
-          max-width: 1200px;
-          margin: 0 auto;
-        }
-
-        .features__header, .agents__header {
-          text-align: center;
-          margin-bottom: 64px;
-        }
-
-        .features__label, .agents__label {
-          display: inline-block;
-          padding: 6px 14px;
-          background: rgba(239, 68, 68, 0.1);
-          border: 1px solid rgba(239, 68, 68, 0.2);
-          border-radius: 100px;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.8rem;
-          color: #fca5a5;
-          margin-bottom: 20px;
-        }
-
-        .features__title, .agents__title {
-          font-family: var(--font-charis), serif;
-          font-size: clamp(2rem, 5vw, 3rem);
-          font-weight: 700;
-          color: #fafafa;
-          line-height: 1.2;
-          margin: 0 0 16px;
-        }
-
-        .features__subtitle, .agents__subtitle {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1.1rem;
-          color: #71717a;
-          max-width: 500px;
-          margin: 0 auto;
+        .features {
+          background: var(--background);
+          border-top: 1px solid var(--border);
+          padding: 0;
         }
 
         .features__grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 24px;
+          grid-template-columns: 200px 1fr;
+          max-width: 1400px;
+          margin: 0 auto;
         }
 
-        .feature-card {
-          position: relative;
-          padding: 32px;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 0;
-          overflow: hidden;
-          opacity: 0;
-          transform: translateY(30px);
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .features__sidebar {
+          padding: 64px 24px;
+          border-right: 1px solid var(--border);
+          position: sticky;
+          top: 0;
+          height: fit-content;
         }
 
-        .feature-card--visible {
-          opacity: 1;
-          transform: translateY(0);
+        .features__label {
+          font-size: 10px;
+          letter-spacing: 0.15em;
+          color: var(--muted);
+          margin-bottom: 16px;
         }
 
-        .feature-card:hover {
-          background: rgba(255, 255, 255, 0.04);
-          border-color: rgba(255, 255, 255, 0.1);
-          transform: translateY(-4px);
+        .features__count {
+          font-size: 64px;
+          font-weight: 300;
+          color: var(--accent);
+          line-height: 1;
         }
 
-        .feature-card__icon {
-          width: 56px;
-          height: 56px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 14px;
-          font-size: 1.5rem;
-          margin-bottom: 20px;
+        .features__main {
+          padding: 64px;
         }
 
-        .feature-card__title {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: #fafafa;
-          margin: 0 0 12px;
-        }
-
-        .feature-card__desc {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.95rem;
-          color: #71717a;
-          line-height: 1.6;
-          margin: 0;
-        }
-
-        .feature-card__glow {
-          position: absolute;
-          bottom: -100px;
-          right: -100px;
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          opacity: 0.05;
-          filter: blur(60px);
-          pointer-events: none;
-        }
-
-        .agents__grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 24px;
-          margin-bottom: 60px;
-        }
-
-        .agent-card {
-          padding: 32px;
-          background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 20px;
-          opacity: 0;
-          transform: translateY(30px) scale(0.95);
-          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .agent-card--visible {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-
-        .agent-card:hover {
-          border-color: rgba(255, 255, 255, 0.15);
-          transform: translateY(-4px);
-        }
-
-        .agent-card__avatar {
-          width: 64px;
-          height: 64px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(239, 68, 68, 0.1);
-          border-radius: 16px;
-          font-size: 2rem;
-          margin-bottom: 20px;
-        }
-
-        .agent-card__info { margin-bottom: 16px; }
-
-        .agent-card__name {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1.25rem;
-          font-weight: 600;
-          color: #fafafa;
-          margin: 0 0 4px;
-        }
-
-        .agent-card__role {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.85rem;
-          color: #ef4444;
-        }
-
-        .agent-card__desc {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.95rem;
-          color: #71717a;
-          line-height: 1.6;
-          margin: 0 0 20px;
-        }
-
-        .agent-card__status {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 12px;
-          background: rgba(16, 185, 129, 0.1);
-          border-radius: 100px;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.75rem;
-          color: #10b981;
-        }
-
-        .agent-card__dot {
-          width: 6px;
-          height: 6px;
-          background: #10b981;
-          border-radius: 50%;
-          animation: pulse 2s ease-in-out infinite;
-        }
-
-        .agents__flow {
-          position: relative;
-          padding: 40px 0;
-        }
-
-        .flow-line {
-          position: absolute;
-          top: 50%;
-          left: 10%;
-          right: 10%;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.3), rgba(59, 130, 246, 0.3), rgba(16, 185, 129, 0.3), transparent);
-        }
-
-        .flow-steps {
-          display: flex;
-          justify-content: center;
-          gap: 120px;
-        }
-
-        .flow-step {
+        .features__list {
           display: flex;
           flex-direction: column;
-          align-items: center;
-          gap: 12px;
         }
 
-        .flow-step__num {
-          width: 48px;
-          height: 48px;
+        .feature-item {
+          display: grid;
+          grid-template-columns: 48px 1fr;
+          gap: 24px;
+          padding: 32px 0;
+          border-bottom: 1px solid var(--border);
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: all 0.5s ease;
+        }
+
+        .feature-item--visible {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .feature-item__id {
+          font-size: 12px;
+          color: var(--accent-dim);
+          padding-top: 4px;
+        }
+
+        .feature-item__title {
+          font-size: 16px;
+          font-weight: 400;
+          color: var(--foreground);
+          margin: 0 0 8px;
+          letter-spacing: 0.05em;
+        }
+
+        .feature-item__desc {
+          font-size: 13px;
+          color: var(--muted);
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        .agents-section {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 64px;
+          border-top: 1px solid var(--border);
+        }
+
+        .agents__header {
           display: flex;
           align-items: center;
-          justify-content: center;
-          background: #1a1a2e;
-          border: 2px solid rgba(239, 68, 68, 0.3);
-          border-radius: 50%;
-          font-family: var(--font-charis), serif;
-          font-size: 1.2rem;
-          font-weight: 700;
-          color: #ef4444;
+          gap: 24px;
+          margin-bottom: 48px;
         }
 
-        .flow-step__text {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.9rem;
-          color: #a1a1aa;
+        .agents__label {
+          font-size: 10px;
+          letter-spacing: 0.15em;
+          color: var(--accent);
+          white-space: nowrap;
         }
 
-        .data-sources__title {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1rem;
-          font-weight: 500;
-          color: #71717a;
-          text-align: center;
-          margin: 0 0 32px;
-          text-transform: uppercase;
+        .agents__line {
+          flex: 1;
+          height: 1px;
+          background: var(--border);
+        }
+
+        .agents__list {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 48px;
+        }
+
+        .agent-row {
+          display: flex;
+          align-items: center;
+          padding: 16px 0;
+          font-size: 12px;
+        }
+
+        .agent-row__num {
+          width: 32px;
+          color: var(--muted);
+        }
+
+        .agent-row__name {
+          color: var(--foreground);
           letter-spacing: 0.1em;
+          min-width: 140px;
         }
 
-        .data-sources__grid {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 12px;
+        .agent-row__dots {
+          flex: 1;
+          height: 1px;
+          background: repeating-linear-gradient(90deg, var(--border) 0, var(--border) 2px, transparent 2px, transparent 8px);
+          margin: 0 24px;
         }
 
-        .source-badge {
-          padding: 12px 20px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 100px;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.9rem;
-          color: #a1a1aa;
+        .agent-row__status {
+          color: var(--muted);
+          text-transform: lowercase;
+        }
+
+        .features__cta {
+          display: inline-flex;
+          align-items: center;
+          gap: 16px;
+          padding: 20px 40px;
+          background: var(--accent);
+          border: none;
+          color: var(--background);
+          font-family: inherit;
+          font-size: 12px;
+          letter-spacing: 0.15em;
+          cursor: pointer;
           transition: all 0.2s ease;
         }
 
-        .source-badge:hover {
-          background: rgba(255, 255, 255, 0.06);
-          border-color: rgba(255, 255, 255, 0.15);
-          color: #fafafa;
+        .features__cta:hover {
+          background: var(--foreground);
         }
 
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
+        .features__cta-arrow {
+          font-size: 18px;
+          transition: transform 0.2s ease;
         }
 
-        @media (max-width: 768px) {
-          .features, .agents { padding: 80px 24px; }
-          .flow-steps { gap: 40px; flex-wrap: wrap; }
-          .flow-line { display: none; }
+        .features__cta:hover .features__cta-arrow {
+          transform: translateX(4px);
+        }
+
+        @media (max-width: 1024px) {
+          .features__grid {
+            grid-template-columns: 1fr;
+          }
+          .features__sidebar {
+            display: none;
+          }
+          .features__main {
+            padding: 48px 24px;
+          }
+          .agents-section {
+            padding: 48px 24px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .agent-row__dots {
+            display: none;
+          }
+          .agent-row {
+            flex-wrap: wrap;
+            gap: 8px;
+          }
+          .agent-row__status {
+            width: 100%;
+            padding-left: 32px;
+          }
         }
       `}</style>
-    </>
+    </section>
   );
 }

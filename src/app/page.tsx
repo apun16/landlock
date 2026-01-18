@@ -9,11 +9,40 @@ import { RightSidebar } from '@/components/right-sidebar';
 const HazardMap = dynamic(() => import('@/components/HazardMap'), {
   ssr: false,
   loading: () => (
-    <div className="flex h-screen w-full items-center justify-center bg-zinc-950">
-      <div className="flex flex-col items-center gap-4">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-zinc-700 border-t-red-500" />
-        <p className="text-zinc-400">Initializing map...</p>
+    <div className="map-loading">
+      <div className="map-loading__content">
+        <div className="map-loading__spinner" />
+        <span>INITIALIZING</span>
       </div>
+      <style jsx>{`
+        .map-loading {
+          display: flex;
+          height: 100vh;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          background: var(--background);
+        }
+        .map-loading__content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          color: var(--muted);
+        }
+        .map-loading__spinner {
+          width: 24px;
+          height: 24px;
+          border: 1px solid var(--border);
+          border-top-color: var(--accent);
+          animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </div>
   ),
 });
@@ -30,16 +59,7 @@ export default function Home() {
     setTimeout(() => {
       setShowMap(true);
       setIsTransitioning(false);
-    }, 600);
-  };
-
-  const handleBack = () => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setShowMap(false);
-      setIsTransitioning(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 600);
+    }, 400);
   };
 
   const handleRegionSelect = (regionId: string) => {
@@ -53,187 +73,83 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (showMap) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    document.body.style.overflow = showMap ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [showMap]);
 
   if (showMap) {
     return (
-      <div className={`app-layout ${isTransitioning ? 'app-layout--transitioning' : ''}`}>
-        
-        <div className={`sidebar-container sidebar-container--left ${leftSidebarOpen ? 'sidebar-container--open' : ''}`}>
+      <div className={`app ${isTransitioning ? 'app--out' : ''}`}>
+        <div className={`panel panel--left ${leftSidebarOpen ? 'panel--open' : ''}`}>
           {leftSidebarOpen && <LeftSidebar selectedRegionId={selectedRegionId} />}
-          <button 
-            className="sidebar-toggle sidebar-toggle--left" 
-            onClick={() => setLeftSidebarOpen(!leftSidebarOpen)}
-            title={leftSidebarOpen ? 'Hide Policy Panel' : 'Show Policy Panel'}
-          >
-            {leftSidebarOpen ? '◀' : '▶'}
+          <button className="panel__toggle panel__toggle--left" onClick={() => setLeftSidebarOpen(!leftSidebarOpen)}>
+            {leftSidebarOpen ? '‹' : '›'}
           </button>
         </div>
 
-        
-        <div className="map-container">
-          
+        <div className="map-area">
           <HazardMap onPostalSearch={handlePostalSearch} />
         </div>
 
-        
-        <div className={`sidebar-container sidebar-container--right ${rightSidebarOpen ? 'sidebar-container--open' : ''}`}>
-          <button 
-            className="sidebar-toggle sidebar-toggle--right" 
-            onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
-            title={rightSidebarOpen ? 'Hide Risk Panel' : 'Show Risk Panel'}
-          >
-            {rightSidebarOpen ? '▶' : '◀'}
+        <div className={`panel panel--right ${rightSidebarOpen ? 'panel--open' : ''}`}>
+          <button className="panel__toggle panel__toggle--right" onClick={() => setRightSidebarOpen(!rightSidebarOpen)}>
+            {rightSidebarOpen ? '›' : '‹'}
           </button>
           {rightSidebarOpen && <RightSidebar selectedRegionId={selectedRegionId} onRegionSelect={handleRegionSelect} />}
         </div>
 
         <style jsx>{`
-          .app-layout {
+          .app {
             position: fixed;
             inset: 0;
             display: flex;
-            background: #09090b;
-            animation: fadeIn 0.6s ease-out;
+            background: var(--background);
+            animation: fadeIn 0.4s ease;
           }
-          .app-layout--transitioning {
-            animation: fadeOut 0.6s ease-out forwards;
+          .app--out {
+            animation: fadeOut 0.4s ease forwards;
           }
 
-          .sidebar-container {
+          .panel {
             position: relative;
             height: 100vh;
-            transition: width 0.3s ease, margin 0.3s ease;
+            width: 0;
+            transition: width 0.3s ease;
             z-index: 100;
           }
-          .sidebar-container--left {
-            width: 0;
-          }
-          .sidebar-container--left.sidebar-container--open {
-            width: 380px;
-          }
-          .sidebar-container--right {
-            width: 0;
-          }
-          .sidebar-container--right.sidebar-container--open {
-            width: 380px;
-          }
+          .panel--open { width: 360px; }
 
-          .sidebar-toggle {
+          .panel__toggle {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 24px;
+            width: 20px;
             height: 48px;
-            background: rgba(9, 9, 11, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #a1a1aa;
-            font-size: 0.8rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 14px;
             cursor: pointer;
             transition: all 0.2s ease;
             z-index: 101;
           }
-          .sidebar-toggle:hover {
-            background: rgba(39, 39, 42, 0.95);
-            color: #fafafa;
+          .panel__toggle:hover {
+            color: var(--foreground);
+            border-color: var(--accent-dim);
           }
-          .sidebar-toggle--left {
-            right: -24px;
-            border-radius: 0 8px 8px 0;
+          .panel__toggle--left {
+            right: -20px;
             border-left: none;
           }
-          .sidebar-toggle--right {
-            left: -24px;
-            border-radius: 8px 0 0 8px;
+          .panel__toggle--right {
+            left: -20px;
             border-right: none;
           }
 
-          .map-container {
+          .map-area {
             flex: 1;
-            position: relative;
             height: 100vh;
             min-width: 0;
-          }
-
-          .map-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 20px;
-            background: linear-gradient(180deg, rgba(9, 9, 11, 0.95) 0%, rgba(9, 9, 11, 0.8) 70%, transparent 100%);
-            pointer-events: none;
-          }
-          .map-header > * {
-            pointer-events: auto;
-          }
-
-          .back-button {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 10px 16px;
-            background: rgba(9, 9, 11, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: #fafafa;
-            font-family: var(--font-poppins), sans-serif;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          }
-          .back-button:hover {
-            background: rgba(39, 39, 42, 0.9);
-            border-color: rgba(255, 255, 255, 0.2);
-          }
-
-          .map-title {
-            font-family: var(--font-charis), serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #fafafa;
-            margin: 0;
-          }
-
-          .map-actions {
-            display: flex;
-            gap: 8px;
-          }
-
-          .panel-toggle {
-            padding: 10px 16px;
-            background: rgba(9, 9, 11, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: #6b7280;
-            font-family: var(--font-poppins), sans-serif;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          }
-          .panel-toggle:hover {
-            background: rgba(39, 39, 42, 0.9);
-            color: #a1a1aa;
-          }
-          .panel-toggle--active {
-            background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.3);
-            color: #10b981;
-          }
-          .panel-toggle--active:hover {
-            background: rgba(16, 185, 129, 0.25);
           }
 
           @keyframes fadeIn {
@@ -245,26 +161,17 @@ export default function Home() {
             to { opacity: 0; }
           }
 
-          @media (max-width: 1200px) {
-            .sidebar-container--left.sidebar-container--open,
-            .sidebar-container--right.sidebar-container--open {
-              width: 320px;
-            }
+          @media (max-width: 1024px) {
+            .panel--open { width: 320px; }
           }
-
-          @media (max-width: 900px) {
-            .sidebar-container--left.sidebar-container--open {
+          @media (max-width: 768px) {
+            .panel--open {
               position: absolute;
-              left: 0;
               width: 100%;
-              max-width: 380px;
+              max-width: 360px;
             }
-            .sidebar-container--right.sidebar-container--open {
-              position: absolute;
-              right: 0;
-              width: 100%;
-              max-width: 380px;
-            }
+            .panel--left { left: 0; }
+            .panel--right { right: 0; }
           }
         `}</style>
       </div>
@@ -272,44 +179,73 @@ export default function Home() {
   }
 
   return (
-    <main className={`landing ${isTransitioning ? 'landing--transitioning' : ''}`}>
+    <main className={`landing ${isTransitioning ? 'landing--out' : ''}`}>
       <Navigation onExplore={handleExplore} />
       <Hero onExplore={handleExplore} />
       <Features onExplore={handleExplore} />
       
       <footer className="footer">
-        <div className="footer__bottom">
-          <p>© 2026 LandLock. Built for BC risk intelligence.</p>
+        <div className="footer__grid">
+          <div className="footer__col">
+            <span className="footer__label">PROJECT</span>
+            <span className="footer__value">LANDLOCK v2.4.1</span>
+          </div>
+          <div className="footer__col">
+            <span className="footer__label">COVERAGE</span>
+            <span className="footer__value">British Columbia, Canada</span>
+          </div>
+          <div className="footer__col">
+            <span className="footer__label">BUILD</span>
+            <span className="footer__value">2026.01</span>
+          </div>
         </div>
       </footer>
 
       <style jsx>{`
         .landing {
           min-height: 100vh;
-          background: #09090b;
-          transition: opacity 0.6s ease, transform 0.6s ease;
+          background: var(--background);
+          transition: opacity 0.4s ease;
         }
-        .landing--transitioning {
+        .landing--out {
           opacity: 0;
-          transform: scale(1.02);
         }
+
         .footer {
-          padding: 80px 24px 32px;
-          background: #020205);
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
-          margin-bottom: 20px;
+          padding: 48px 24px;
+          border-top: 1px solid var(--border);
         }
-        .footer__bottom {
-          max-width: 1200px;
+
+        .footer__grid {
+          max-width: 1400px;
           margin: 0 auto;
-          padding-top: 24px;
-          text-align: center;
+          display: flex;
+          justify-content: space-between;
+          gap: 48px;
         }
-        .footer__bottom p {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.95rem;
-          color: #8a8a99;
-          margin: 0;
+
+        .footer__col {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .footer__label {
+          font-size: 9px;
+          letter-spacing: 0.15em;
+          color: var(--muted);
+        }
+
+        .footer__value {
+          font-size: 12px;
+          color: var(--foreground);
+        }
+
+        @media (max-width: 640px) {
+          .footer__grid {
+            flex-direction: column;
+            gap: 24px;
+          }
         }
       `}</style>
     </main>
