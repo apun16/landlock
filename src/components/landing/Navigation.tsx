@@ -20,19 +20,8 @@ export function Navigation({ onExplore }: NavigationProps) {
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
         <Link href="/" className="nav__logo">
-          <svg className="nav__logo-icon" viewBox="0 0 32 32" fill="none">
-            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" strokeWidth="2" />
-            <path d="M8 16L14 22L24 10" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
           <span className="nav__logo-text">LandLock</span>
         </Link>
-
-        <div className="nav__links">
-          <a href="#features" className="nav__link">Features</a>
-          <a href="#agents" className="nav__link">AI Agents</a>
-          <a href="#data" className="nav__link">Data Sources</a>
-        </div>
-
         <button className="nav__cta" onClick={onExplore}>
           Open App
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -114,7 +103,7 @@ export function Navigation({ onExplore }: NavigationProps) {
           padding: 10px 20px;
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 10px;
+          border-radius: 0;
           color: #fafafa;
           font-family: var(--font-poppins), sans-serif;
           font-size: 0.9rem;

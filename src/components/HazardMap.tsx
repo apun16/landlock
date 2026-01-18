@@ -220,10 +220,8 @@ export default function HazardMap() {
 
   return (
     <div className="relative h-screen w-full bg-zinc-950">
-      {/* Map Container */}
       <div ref={mapContainerRef} className="absolute inset-0 z-0" />
 
-      {/* Header */}
       <div className="absolute left-0 right-0 top-0 z-10 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent px-6 py-4">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
@@ -241,7 +239,6 @@ export default function HazardMap() {
             </p>
           </div>
           
-          {/* Search Box */}
           <form onSubmit={handleSearch} className="flex items-center gap-2">
             <div className="relative">
               <input
@@ -283,7 +280,6 @@ export default function HazardMap() {
         )}
       </div>
 
-      {/* Legend Panel */}
       <div className="absolute bottom-6 left-6 z-10 rounded-xl border border-zinc-800 bg-zinc-950/95 p-4 backdrop-blur-sm">
         <h3 
           className="mb-3 text-sm font-semibold text-white"
@@ -326,7 +322,6 @@ export default function HazardMap() {
         )}
       </div>
 
-      {/* Stats Panel */}
       <div className="absolute bottom-6 right-6 z-10 rounded-xl border border-zinc-800 bg-zinc-950/95 p-4 backdrop-blur-sm">
         <h3 
           className="mb-3 text-sm font-semibold text-white"
@@ -353,7 +348,6 @@ export default function HazardMap() {
         </div>
       </div>
 
-      {/* Selected Point Details */}
       {selectedPoint && (
         <div className="absolute right-6 top-24 z-10 w-72 rounded-xl border border-zinc-800 bg-zinc-950/95 p-4 backdrop-blur-sm">
           <div className="mb-3 flex items-start justify-between">
@@ -412,7 +406,6 @@ export default function HazardMap() {
         </div>
       )}
 
-      {/* Custom tooltip styles */}
       <style jsx global>{`
         .custom-tooltip {
           background: rgba(9, 9, 11, 0.95) !important;

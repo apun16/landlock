@@ -58,7 +58,7 @@ export default function Home() {
   if (showMap) {
     return (
       <div className={`app-layout ${isTransitioning ? 'app-layout--transitioning' : ''}`}>
-        {/* Left Sidebar - Policy & Development */}
+        
         <div className={`sidebar-container sidebar-container--left ${leftSidebarOpen ? 'sidebar-container--open' : ''}`}>
           {leftSidebarOpen && <LeftSidebar selectedRegionId={selectedRegionId} />}
           <button 
@@ -70,7 +70,7 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Main Map Area */}
+        
         <div className="map-container">
           <div className="map-header">
             <button className="back-button" onClick={handleBack}>
@@ -98,7 +98,7 @@ export default function Home() {
           <HazardMap />
         </div>
 
-        {/* Right Sidebar - Finance & Insurance */}
+        
         <div className={`sidebar-container sidebar-container--right ${rightSidebarOpen ? 'sidebar-container--open' : ''}`}>
           <button 
             className="sidebar-toggle sidebar-toggle--right" 
@@ -291,25 +291,9 @@ export default function Home() {
     <main className={`landing ${isTransitioning ? 'landing--transitioning' : ''}`}>
       <Navigation onExplore={handleExplore} />
       <Hero onExplore={handleExplore} />
-      <Features />
+      <Features onExplore={handleExplore} />
       
       <footer className="footer">
-        <div className="footer__inner">
-          <div className="footer__brand">
-            <span className="footer__logo">LandLock</span>
-            <p className="footer__tagline">Understanding your urban risk exposure</p>
-          </div>
-          <div className="footer__links">
-            <a href="#features">Features</a>
-            <a href="#agents">AI Agents</a>
-            <a href="#data">Data Sources</a>
-          </div>
-          <div className="footer__cta">
-            <button onClick={handleExplore} className="footer__button">
-              Launch App →
-            </button>
-          </div>
-        </div>
         <div className="footer__bottom">
           <p>© 2026 LandLock. Built for BC risk intelligence.</p>
         </div>
@@ -327,60 +311,9 @@ export default function Home() {
         }
         .footer {
           padding: 80px 24px 32px;
-          background: linear-gradient(180deg, #0f0f1a 0%, #09090b 100%);
+          background: #020205);
           border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .footer__inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          display: grid;
-          grid-template-columns: 2fr 1fr 1fr;
-          gap: 48px;
-          padding-bottom: 48px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .footer__logo {
-          font-family: var(--font-charis), serif;
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: #fafafa;
-        }
-        .footer__tagline {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.9rem;
-          color: #71717a;
-          margin: 8px 0 0;
-        }
-        .footer__links {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-        }
-        .footer__links a {
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 0.9rem;
-          color: #a1a1aa;
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-        .footer__links a:hover {
-          color: #fafafa;
-        }
-        .footer__button {
-          padding: 14px 28px;
-          background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-          border: none;
-          border-radius: 12px;
-          color: white;
-          font-family: var(--font-poppins), sans-serif;
-          font-size: 1rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        .footer__button:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 32px rgba(220, 38, 38, 0.3);
+          margin-bottom: 20px;
         }
         .footer__bottom {
           max-width: 1200px;
@@ -390,20 +323,9 @@ export default function Home() {
         }
         .footer__bottom p {
           font-family: var(--font-poppins), sans-serif;
-          font-size: 0.85rem;
-          color: #52525b;
+          font-size: 0.95rem;
+          color: #8a8a99;
           margin: 0;
-        }
-        @media (max-width: 768px) {
-          .footer__inner {
-            grid-template-columns: 1fr;
-            text-align: center;
-          }
-          .footer__links {
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-          }
         }
       `}</style>
     </main>

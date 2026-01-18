@@ -187,7 +187,6 @@ export function LeftSidebar({ selectedRegionId, backendUrl = 'http://localhost:8
 
         {!isLoading && !error && data && activeTab === 'overview' && (
           <div className="section">
-            {/* Underwriter Verdict */}
             <div className="card card--verdict">
               <div className="verdict-header">
                 <span className="verdict-label">Development Verdict</span>
@@ -208,7 +207,6 @@ export function LeftSidebar({ selectedRegionId, backendUrl = 'http://localhost:8
               </div>
             </div>
 
-            {/* Score Summary */}
             <div className="card">
               <h3 className="card__title">Score Summary</h3>
               <div className="scores-grid">
@@ -239,7 +237,6 @@ export function LeftSidebar({ selectedRegionId, backendUrl = 'http://localhost:8
               </div>
             </div>
 
-            {/* Pros & Cons */}
             <div className="card">
               <h3 className="card__title">Pros & Cons</h3>
               <div className="pros-cons">
@@ -366,7 +363,6 @@ export function LeftSidebar({ selectedRegionId, backendUrl = 'http://localhost:8
               </div>
             </div>
 
-            {/* Underwriter Constraints */}
             {data.underwriter_analysis.constraints.length > 0 && (
               <div className="card">
                 <h3 className="card__title">Development Constraints</h3>

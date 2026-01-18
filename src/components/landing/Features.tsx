@@ -4,69 +4,34 @@ import { useEffect, useRef, useState } from 'react';
 
 const features = [
   {
-    icon: '🗺️',
     title: 'Multi-Hazard Mapping',
     description: 'Visualize wildfire, flood, and earthquake exposure across 1,600+ Canadian FSA regions with real-time data.',
-    color: '#ef4444'
   },
   {
-    icon: '🤖',
     title: '3-Agent AI Crew',
     description: 'Data Analyst, Insurance Risk Analyst, and Mitigation Strategist work together to provide comprehensive insights.',
-    color: '#3b82f6'
   },
   {
-    icon: '📊',
     title: 'Risk Scoring',
     description: 'Weighted multi-factor scoring from 0-100 with breakdowns by wildfire exposure, historical loss, and vulnerability.',
-    color: '#f59e0b'
   },
   {
-    icon: '💰',
     title: 'Cost Projections',
     description: 'Model insurance costs under baseline, moderate climate, and severe climate scenarios with confidence intervals.',
-    color: '#10b981'
   },
   {
-    icon: '📋',
     title: 'Automated Reports',
     description: 'Generate explainable risk reports with data sources, methodology, and actionable recommendations.',
-    color: '#8b5cf6'
   },
   {
-    icon: '⚡',
     title: 'Real-time Pipeline',
     description: '8-stage automation pipeline for data ingestion, validation, scoring, and report generation.',
-    color: '#ec4899'
   }
 ];
 
-const agents = [
-  {
-    name: 'Data Analyst',
-    role: 'Quality Validator',
-    description: 'Validates wildfire and zoning data quality, identifies gaps, and ensures data integrity before analysis.',
-    avatar: '🔍'
-  },
-  {
-    name: 'Insurance Risk Analyst',
-    role: 'Risk Assessor',
-    description: 'Assesses hazards using geospatial and historical patterns, calculates risk scores, and projects costs.',
-    avatar: '📈'
-  },
-  {
-    name: 'Mitigation Strategist',
-    role: 'Action Planner',
-    description: 'Develops risk reduction strategies, recommends mitigation actions, and estimates implementation costs.',
-    avatar: '🛡️'
-  }
-];
-
-export function Features() {
+export function Features({ onExplore }: { onExplore: () => void }) {
   const [visibleFeatures, setVisibleFeatures] = useState<number[]>([]);
-  const [visibleAgents, setVisibleAgents] = useState<number[]>([]);
   const featuresRef = useRef<HTMLDivElement>(null);
-  const agentsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -50px 0px' };
@@ -80,19 +45,9 @@ export function Features() {
       });
     }, observerOptions);
 
-    const agentObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = Number(entry.target.getAttribute('data-index'));
-          setVisibleAgents((prev) => [...new Set([...prev, index])]);
-        }
-      });
-    }, observerOptions);
-
     document.querySelectorAll('.feature-card').forEach((el) => featureObserver.observe(el));
-    document.querySelectorAll('.agent-card').forEach((el) => agentObserver.observe(el));
 
-    return () => { featureObserver.disconnect(); agentObserver.disconnect(); };
+    return () => { featureObserver.disconnect(); };
   }, []);
 
   return (
@@ -104,6 +59,23 @@ export function Features() {
             <h2 className="features__title">Everything you need for<br />urban risk intelligence</h2>
             <p className="features__subtitle">Comprehensive tools for analyzing, visualizing, and acting on hazard data</p>
           </div>
+          
+          <div className="ai-section__media"> 
+            <div className="media-container">
+              <div className="media-placeholder" onClick={onExplore} > 
+                <img className="media-placeholder__image" src="/images/feature-media.jpg" alt="Feature media" />
+                <div className="media-placeholder__overlay"> 
+                  <div className="media-placeholder__play"> 
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"> 
+                      <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /> 
+                      <rect x="2" y="6" width="20" height="12" /> 
+                      </svg> 
+                      </div> 
+                      <p>Click to explore map</p> 
+                      </div> 
+                      <div className="media-placeholder__border" /> </div> 
+                      </div> 
+          </div>
 
           <div ref={featuresRef} className="features__grid">
             {features.map((feature, index) => (
@@ -113,85 +85,250 @@ export function Features() {
                 data-index={index}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="feature-card__icon" style={{ background: `${feature.color}15`, color: feature.color }}>
-                  {feature.icon}
-                </div>
                 <h3 className="feature-card__title">{feature.title}</h3>
                 <p className="feature-card__desc">{feature.description}</p>
-                <div className="feature-card__glow" style={{ background: feature.color }} />
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="agents" className="agents">
-        <div className="agents__inner">
-          <div className="agents__header">
-            <span className="agents__label">AI Crew</span>
-            <h2 className="agents__title">Powered by Multi-Agent<br />Intelligence</h2>
-            <p className="agents__subtitle">Three specialized AI agents collaborate to deliver comprehensive risk analysis</p>
-          </div>
-
-          <div ref={agentsRef} className="agents__grid">
-            {agents.map((agent, index) => (
-              <div 
-                key={index}
-                className={`agent-card ${visibleAgents.includes(index) ? 'agent-card--visible' : ''}`}
-                data-index={index}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="agent-card__avatar">{agent.avatar}</div>
-                <div className="agent-card__info">
-                  <h3 className="agent-card__name">{agent.name}</h3>
-                  <span className="agent-card__role">{agent.role}</span>
-                </div>
-                <p className="agent-card__desc">{agent.description}</p>
-                <div className="agent-card__status">
-                  <span className="agent-card__dot" />
-                  <span>Ready</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="agents__flow">
-            <div className="flow-line" />
-            <div className="flow-steps">
-              <div className="flow-step">
-                <span className="flow-step__num">1</span>
-                <span className="flow-step__text">Validate Data</span>
-              </div>
-              <div className="flow-step">
-                <span className="flow-step__num">2</span>
-                <span className="flow-step__text">Assess Risk</span>
-              </div>
-              <div className="flow-step">
-                <span className="flow-step__num">3</span>
-                <span className="flow-step__text">Plan Mitigation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="data" className="data-sources">
-        <div className="data-sources__inner">
-          <h2 className="data-sources__title">Trusted Data Sources</h2>
-          <div className="data-sources__grid">
-            <div className="source-badge">BC Wildfire Service</div>
-            <div className="source-badge">CWFIS Canada</div>
-            <div className="source-badge">Vancouver Open Data</div>
-            <div className="source-badge">BC Geographic Warehouse</div>
-            <div className="source-badge">Statistics Canada</div>
-            <div className="source-badge">Natural Resources Canada</div>
           </div>
         </div>
       </section>
 
       <style jsx>{`
+              .ai-section {
+          position: relative;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 120px 32px;
+          background: #000000;
+          overflow: hidden;
+        }
+
+        .ai-section__bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+
+        .ai-section__grid {
+          position: absolute;
+          inset: 0;
+          background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+          background-size: 100px 100px;
+          opacity: 0.4;
+        }
+
+        .ai-section__shapes {
+          position: absolute;
+          inset: 0;
+        }
+
+        .shape {
+          position: absolute;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .shape--1 {
+          top: 10%;
+          right: 10%;
+          width: 300px;
+          height: 300px;
+          border-left: none;
+          border-bottom: none;
+        }
+
+        .shape--2 {
+          bottom: 20%;
+          left: 15%;
+          width: 200px;
+          height: 200px;
+          border-right: none;
+          border-top: none;
+        }
+
+        .ai-section__inner {
+          position: relative;
+          z-index: 1;
+          max-width: 1400px;
+          width: 100%;
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .ai-section__inner--visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .ai-section__title {
+          font-family: var(--font-charis), serif;
+          font-size: clamp(3rem, 8vw, 6rem);
+          font-weight: 700;
+          line-height: 1.1;
+          letter-spacing: -0.04em;
+          color: #ffffff;
+          margin: 0 0 80px;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .ai-section__title-line {
+          color: rgba(255, 255, 255, 0.3);
+          font-size: 0.3em;
+          letter-spacing: 0.2em;
+        }
+
+        .ai-section__media {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          margin-bottom: 24px;
+        }
+
+        .media-container {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+        }
+
+        .media-placeholder {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          cursor: pointer;
+          transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+          opacity: 1;
+          transform: none;
+        }
+
+        .ai-section__inner--visible .media-placeholder {
+          animation: fadeInScale 1s ease-out 0.3s both;
+        }
+
+        .media-placeholder:hover {
+          border-color: rgba(255, 255, 255, 0.2);
+          transform: scale(1.02);
+        }
+
+        .media-placeholder__image {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(0.55) contrast(1.05);
+          z-index: 0;
+        }
+
+        .media-placeholder__overlay {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          color: rgba(255, 255, 255, 0.6);
+          transition: all 0.3s ease;
+        }
+
+        .media-placeholder:hover .media-placeholder__overlay {
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        .media-placeholder__play {
+          width: 80px;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.05);
+          transition: all 0.3s ease;
+        }
+
+        .media-placeholder:hover .media-placeholder__play {
+          border-color: rgba(255, 255, 255, 0.4);
+          background: rgba(255, 255, 255, 0.1);
+          transform: scale(1.1);
+        }
+
+        .media-placeholder__overlay p {
+          font-family: var(--font-poppins), sans-serif;
+          font-size: 0.9rem;
+          margin: 0;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+
+        .media-placeholder__border {
+          position: absolute;
+          inset: 0;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          pointer-events: none;
+        }
+
+        .media-placeholder__border::before,
+        .media-placeholder__border::after {
+          content: '';
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .media-placeholder__border::before {
+          top: 20px;
+          left: 20px;
+          border-right: none;
+          border-bottom: none;
+        }
+
+        .media-placeholder__border::after {
+          bottom: 20px;
+          right: 20px;
+          border-left: none;
+          border-top: none;
+        }
+
+        @keyframes fadeInScale {
+          from { 
+            opacity: 0; 
+            transform: scale(0.95);
+          }
+          to { 
+            opacity: 1; 
+            transform: scale(1);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .ai-section {
+            padding: 80px 24px;
+          }
+          .ai-section__title {
+            margin-bottom: 48px;
+            gap: 12px;
+          }
+          .shape {
+            display: none;
+          }
+        }
         .features, .agents, .data-sources {
-          padding: 120px 24px;
+          padding: 60px 24px;
           position: relative;
         }
 
@@ -249,7 +386,7 @@ export function Features() {
           padding: 32px;
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 20px;
+          border-radius: 0;
           overflow: hidden;
           opacity: 0;
           transform: translateY(30px);

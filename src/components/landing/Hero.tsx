@@ -26,11 +26,6 @@ export function Hero({ onExplore }: HeroProps) {
       </div>
 
       <div className="hero__content hero__content--visible">
-        <div className="hero__badge">
-          <span className="hero__badge-dot" />
-          <span>AI-Powered Risk Intelligence</span>
-        </div>
-
         <h1 className="hero__title">
           <span className="hero__title-line">Understand Your</span>
           <span className="hero__title-accent">Urban Risk</span>
@@ -48,15 +43,12 @@ export function Hero({ onExplore }: HeroProps) {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
-          <a href="#features" className="hero__secondary">
-            Learn More
-          </a>
         </div>
 
         <div className="hero__stats">
           <div className="hero__stat">
             <span className="hero__stat-value">1,600+</span>
-            <span className="hero__stat-label">FSA Regions</span>
+            <span className="hero__stat-label">Regions</span>
           </div>
           <div className="hero__stat-divider" />
           <div className="hero__stat">
@@ -66,7 +58,7 @@ export function Hero({ onExplore }: HeroProps) {
           <div className="hero__stat-divider" />
           <div className="hero__stat">
             <span className="hero__stat-value">3</span>
-            <span className="hero__stat-label">AI Agents</span>
+            <span className="hero__stat-label">Agents</span>
           </div>
         </div>
       </div>
@@ -214,7 +206,7 @@ export function Hero({ onExplore }: HeroProps) {
           padding: 16px 32px;
           background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
           border: none;
-          border-radius: 12px;
+          border-radius: 0;
           color: white;
           font-family: var(--font-poppins), sans-serif;
           font-size: 1rem;
@@ -289,13 +281,13 @@ export function Hero({ onExplore }: HeroProps) {
 
         .hero__scroll {
           position: absolute;
-          bottom: 40px;
+          bottom: 80px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 12px;
+          gap: 10px;
           background: none;
           border: none;
           color: #71717a;
