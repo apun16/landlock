@@ -19,7 +19,7 @@ interface StatsData {
   byLevel: Record<number, number>;
 }
 
-export default function HazardMap() {
+export default function HazardMap({ onPostalSearch }: { onPostalSearch?: (regionId?: string) => void } = {}) {
   const mapRef = useRef<L.Map | null>(null);
   const dataRef = useRef<HeatMapDataPoint[]>([]);
   const highlightRef = useRef<L.CircleMarker | null>(null);
@@ -62,7 +62,7 @@ export default function HazardMap() {
       const map = L.map(node, {
         center: [56.0, -96.0], // Center of Canada
         zoom: 4,
-        zoomControl: true,
+        zoomControl: false, // disable default (left) control; we'll add a positioned one
         attributionControl: false,
       });
 
@@ -70,6 +70,10 @@ export default function HazardMap() {
       L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 19,
       }).addTo(map);
+
+      // Ensure zoom controls are present and positioned where they won't overlap UI
+      // Add explicit zoom control positioned at top-right
+      L.control.zoom({ position: 'topright' }).addTo(map);
 
       mapRef.current = map;
 
@@ -186,6 +190,8 @@ export default function HazardMap() {
       }
       
       setSelectedPoint(result);
+      // notify parent (page) so panels can open and region can be selected
+      onPostalSearch?.(result.fsa);
     } else {
       setSearchError(`No results found for "${searchQuery}"`);
     }
@@ -222,24 +228,8 @@ export default function HazardMap() {
     <div className="relative h-screen w-full bg-zinc-950">
       <div ref={mapContainerRef} className="absolute inset-0 z-0" />
 
-      <div className="absolute left-0 right-0 top-0 z-10 bg-gradient-to-b from-zinc-950 via-zinc-950/90 to-transparent px-6 py-4">
-        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h1 
-              className="text-2xl font-bold text-white md:text-3xl"
-              style={{ fontFamily: 'var(--font-charis)' }}
-            >
-              Canada Multi-Hazard Exposure Map
-            </h1>
-            <p 
-              className="mt-1 text-sm text-zinc-400"
-              style={{ fontFamily: 'var(--font-poppins)' }}
-            >
-              Forward Sortation Areas colored by natural disaster exposure risk
-            </p>
-          </div>
-          
-          <form onSubmit={handleSearch} className="flex items-center gap-2">
+      <div className="absolute left-0 right-0 top-4 z-10 flex items-center justify-center px-6">
+          <form onSubmit={handleSearch} className="flex items-center gap-2 bg-zinc-950/80 rounded-lg p-2">
             <div className="relative">
               <input
                 type="text"
@@ -269,15 +259,14 @@ export default function HazardMap() {
               Search
             </button>
           </form>
-        </div>
-        {searchError && (
-          <p 
-            className="mt-2 text-right text-sm text-red-400"
-            style={{ fontFamily: 'var(--font-poppins)' }}
-          >
-            {searchError}
-          </p>
-        )}
+          {searchError && (
+            <p 
+              className="mt-2 text-center text-sm text-red-400"
+              style={{ fontFamily: 'var(--font-poppins)' }}
+            >
+              {searchError}
+            </p>
+          )}
       </div>
 
       <div className="absolute bottom-6 left-6 z-10 rounded-xl border border-zinc-800 bg-zinc-950/95 p-4 backdrop-blur-sm">

@@ -124,8 +124,11 @@ export function LeftSidebar({ selectedRegionId, backendUrl = 'http://localhost:8
   }, [backendUrl]);
 
   useEffect(() => {
-    const regionToFetch = selectedRegionId || 'kamloops';
-    fetchAnalysis(regionToFetch);
+    if (selectedRegionId) {
+      fetchAnalysis(selectedRegionId);
+    } else {
+      setData(null);
+    }
   }, [selectedRegionId, fetchAnalysis]);
 
   const getVerdictColor = (verdict: string) => {

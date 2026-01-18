@@ -21,8 +21,8 @@ const HazardMap = dynamic(() => import('@/components/HazardMap'), {
 export default function Home() {
   const [showMap, setShowMap] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
-  const [rightSidebarOpen, setRightSidebarOpen] = useState(true);
+  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false);
+  const [rightSidebarOpen, setRightSidebarOpen] = useState(false);
   const [selectedRegionId, setSelectedRegionId] = useState<string | undefined>();
 
   const handleExplore = () => {
@@ -44,6 +44,12 @@ export default function Home() {
 
   const handleRegionSelect = (regionId: string) => {
     setSelectedRegionId(regionId);
+  };
+
+  const handlePostalSearch = (regionId?: string) => {
+    if (regionId) setSelectedRegionId(regionId);
+    setLeftSidebarOpen(true);
+    setRightSidebarOpen(true);
   };
 
   useEffect(() => {
@@ -72,30 +78,8 @@ export default function Home() {
 
         
         <div className="map-container">
-          <div className="map-header">
-            <button className="back-button" onClick={handleBack}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-              <span>Home</span>
-            </button>
-            <h1 className="map-title">LandLock</h1>
-            <div className="map-actions">
-              <button 
-                className={`panel-toggle ${leftSidebarOpen ? 'panel-toggle--active' : ''}`}
-                onClick={() => setLeftSidebarOpen(!leftSidebarOpen)}
-              >
-                Policy
-              </button>
-              <button 
-                className={`panel-toggle ${rightSidebarOpen ? 'panel-toggle--active' : ''}`}
-                onClick={() => setRightSidebarOpen(!rightSidebarOpen)}
-              >
-                Risk
-              </button>
-            </div>
-          </div>
-          <HazardMap />
+          
+          <HazardMap onPostalSearch={handlePostalSearch} />
         </div>
 
         

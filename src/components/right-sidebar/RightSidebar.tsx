@@ -134,10 +134,13 @@ export function RightSidebar({ selectedRegionId, onRegionSelect }: RightSidebarP
     }
   };
 
-  useEffect(() => { fetchRankings(); fetchPipelineStatus(); }, [fetchRankings, fetchPipelineStatus]);
+  // Don't auto-fetch rankings or region data on mount. Only fetch region data when a region is selected.
   useEffect(() => { 
-    const regionToFetch = selectedRegionId || 'kamloops';
-    fetchRegionData(regionToFetch);
+    if (selectedRegionId) {
+      fetchRegionData(selectedRegionId);
+    } else {
+      setSelectedRegion(null);
+    }
   }, [selectedRegionId, fetchRegionData]);
 
   const handleRegionSelect = (regionId: string) => {
