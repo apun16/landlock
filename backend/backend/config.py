@@ -18,7 +18,6 @@ class Settings(BaseSettings):
     openai_api_key: Optional[str] = None
     use_llm_mode: bool = False
     
-    # Supabase configuration
     supabase_url: Optional[str] = None
     supabase_key: Optional[str] = None
     use_supabase: bool = False

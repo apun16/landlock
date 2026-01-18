@@ -70,6 +70,7 @@ class PipelineRunner:
             print(f"[Pipeline] Running unified production crew...")
             from backend.agents.production_crew import run_production_crew
             output = run_production_crew(facts, citations, self.settings, region_id)
+            return output
         else:
             # Deterministic mode - run agents individually
             print(f"[Pipeline] Running Budget Analyst...")
@@ -85,17 +86,17 @@ class PipelineRunner:
                 facts,
                 citations
             )
-            
-            # Compile final output
-            output = RegionPanelOutput(
-                region_id=region_id,
-                budget_analysis=budget_output,
-                policy_analysis=policy_output,
-                underwriter_analysis=underwriter_output,
-                generated_at=datetime.utcnow().isoformat(),
-            )
-            
-            print(f"[Pipeline] Complete. Verdict: {underwriter_output.verdict}")
+        
+        # Step 5: Compile final output
+        output = RegionPanelOutput(
+            region_id=region_id,
+            budget_analysis=budget_output,
+            policy_analysis=policy_output,
+            underwriter_analysis=underwriter_output,
+            generated_at=datetime.utcnow().isoformat(),
+        )
+        
+        print(f"[Pipeline] Complete. Verdict: {underwriter_output.verdict}")
         
         # Store to Supabase if configured
         if self.supabase and self.supabase.is_available:
@@ -129,7 +130,7 @@ class PipelineRunner:
         # Run agents (unified production crew or individual)
         if self.settings.use_llm_mode:
             from backend.agents.production_crew import run_production_crew
-            output = run_production_crew(facts, citations, self.settings, region_id)
+            return run_production_crew(facts, citations, self.settings, region_id)
         else:
             # Deterministic mode
             budget_output = self.budget_analyst.analyze(facts, citations)
@@ -140,13 +141,14 @@ class PipelineRunner:
                 facts,
                 citations
             )
-            output = RegionPanelOutput(
-                region_id=region_id,
-                budget_analysis=budget_output,
-                policy_analysis=policy_output,
-                underwriter_analysis=underwriter_output,
-                generated_at=datetime.utcnow().isoformat(),
-            )
+        
+        output = RegionPanelOutput(
+            region_id=region_id,
+            budget_analysis=budget_output,
+            policy_analysis=policy_output,
+            underwriter_analysis=underwriter_output,
+            generated_at=datetime.utcnow().isoformat(),
+        )
         
         # Store to Supabase if configured
         if self.supabase and self.supabase.is_available:
