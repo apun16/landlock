@@ -44,7 +44,6 @@ export function AgentInsights({ conclusions, maxDisplay = 5 }: AgentInsightsProp
     <div className="insights">
       <h3 className="insights__title">
         <span className="insights__title-icon">🤖</span> Agent Insights
-        <span className="insights__count">{conclusions.length}</span>
       </h3>
 
       <div className="insights__list">
@@ -52,27 +51,26 @@ export function AgentInsights({ conclusions, maxDisplay = 5 }: AgentInsightsProp
           <div key={index} className="insight-item">
             <div className="insight-item__header">
               <span className="insight-item__agent">{conclusion.agentName}</span>
-              <span className="insight-item__time">{formatTimestamp(conclusion.timestamp)}</span>
             </div>
             <p className="insight-item__conclusion">{conclusion.conclusion}</p>
-            <div className="insight-item__meta">
-              <div className="insight-item__confidence">
-                <span className="insight-item__confidence-label">Confidence:</span>
-                <div className="insight-item__confidence-bar">
-                  <div className="insight-item__confidence-fill" style={{ width: `${conclusion.confidence * 100}%`, background: getConfidenceColor(conclusion.confidence) }} />
-                </div>
-                <span className="insight-item__confidence-value" style={{ color: getConfidenceColor(conclusion.confidence) }}>{Math.round(conclusion.confidence * 100)}%</span>
+
+            <div className="insight-item__meta-vertical">
+              <div className="insight-item__meta-row">
+                <div className="insight-item__meta-label">Confidence:</div>
+                <div className="insight-item__meta-value" style={{ color: getConfidenceColor(conclusion.confidence) }}>{Math.round(conclusion.confidence * 100)}%</div>
               </div>
+
+              {conclusion.dataSourcesCited.length > 0 && (
+                <div className="insight-item__meta-row">
+                  <div className="insight-item__meta-label">Sources:</div>
+                  <div className="insight-item__sources-list-plain">
+                    {conclusion.dataSourcesCited.map((source, idx) => (
+                      <div key={idx} className="insight-item__source-line">{source}</div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            {conclusion.dataSourcesCited.length > 0 && (
-              <div className="insight-item__sources">
-                <span className="insight-item__sources-label">Sources:</span>
-                <div className="insight-item__sources-list">
-                  {conclusion.dataSourcesCited.slice(0, 3).map((source, idx) => <span key={idx} className="insight-item__source-tag">{source}</span>)}
-                  {conclusion.dataSourcesCited.length > 3 && <span className="insight-item__source-tag insight-item__source-tag--more">+{conclusion.dataSourcesCited.length - 3} more</span>}
-                </div>
-              </div>
-            )}
           </div>
         ))}
       </div>
@@ -94,22 +92,17 @@ const styles = `
   .insights__count { margin-left: auto; padding: 2px 8px; background: rgba(59, 130, 246, 0.2); border-radius: 10px; font-size: 0.75rem; color: #60a5fa; }
   .insights__empty-text { color: #9ca3af; font-size: 0.875rem; text-align: center; padding: 20px 0; }
   .insights__list { display: flex; flex-direction: column; gap: 12px; }
-  .insight-item { padding: 14px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); border-left: 3px solid #3b82f6; }
+  .insight-item { padding: 14px; background: rgba(255, 255, 255, 0.03); border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.05); }
   .insight-item__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .insight-item__agent { font-size: 0.75rem; font-weight: 600; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.5px; }
-  .insight-item__time { font-size: 0.7rem; color: #6b7280; }
-  .insight-item__conclusion { font-size: 0.85rem; color: #d1d5db; line-height: 1.5; margin: 0 0 12px; }
-  .insight-item__meta { display: flex; gap: 16px; margin-bottom: 10px; }
-  .insight-item__confidence { display: flex; align-items: center; gap: 6px; }
-  .insight-item__confidence-label { font-size: 0.7rem; color: #6b7280; }
-  .insight-item__confidence-bar { width: 60px; height: 4px; background: #374151; border-radius: 2px; overflow: hidden; }
-  .insight-item__confidence-fill { height: 100%; transition: width 0.5s ease; }
-  .insight-item__confidence-value { font-size: 0.7rem; font-weight: 600; }
-  .insight-item__sources { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  .insight-item__sources-label { font-size: 0.7rem; color: #6b7280; }
-  .insight-item__sources-list { display: flex; gap: 4px; flex-wrap: wrap; }
-  .insight-item__source-tag { padding: 2px 8px; background: rgba(255, 255, 255, 0.05); border-radius: 4px; font-size: 0.65rem; color: #9ca3af; }
-  .insight-item__source-tag--more { color: #6b7280; font-style: italic; }
+  .insight-item__agent { font-size: 0.9rem; font-weight: 700; color: #ffffff; }
+  .insight-item__time { font-size: 0.75rem; color: #9ca3af; }
+  .insight-item__conclusion { font-size: 0.95rem; color: #d1d5db; line-height: 1.5; margin: 0 0 12px; }
+  .insight-item__meta-vertical { display: flex; flex-direction: column; gap: 8px; }
+  .insight-item__meta-row { display: flex; gap: 8px; align-items: flex-start; }
+  .insight-item__meta-label { font-size: 0.75rem; color: #9ca3af; min-width: 80px; }
+  .insight-item__meta-value { font-size: 0.9rem; font-weight: 700; color: #ffffff; }
+  .insight-item__sources-list-plain { display: flex; flex-direction: column; gap: 4px; }
+  .insight-item__source-line { font-size: 0.85rem; color: #cbd5e1; }
   .insights__footer { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; }
   .insights__view-all { padding: 8px 16px; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 8px; color: #60a5fa; font-size: 0.8rem; cursor: pointer; transition: all 0.2s ease; }
   .insights__view-all:hover { background: rgba(59, 130, 246, 0.25); }

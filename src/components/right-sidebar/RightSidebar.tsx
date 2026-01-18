@@ -96,6 +96,10 @@ export function RightSidebar({ selectedRegionId, onRegionSelect }: RightSidebarP
         const data = await response.json();
         setSelectedRegion(data.riskScore ? data : getDemoRegionData(regionId));
       } else {
+        // read server message for debugging but don't show raw response in the UI
+        let serverMsg = '';
+        try { serverMsg = await response.text(); } catch (e) { /* ignore */ }
+        console.warn(`Region fetch failed: ${response.status} ${response.statusText}`, serverMsg);
         setSelectedRegion(getDemoRegionData(regionId));
       }
     } catch (err) {
@@ -161,6 +165,7 @@ export function RightSidebar({ selectedRegionId, onRegionSelect }: RightSidebarP
               {pipelineStatus.isRunning ? '⟳ Running' : `${pipelineStatus.regions?.scored ?? 0} regions scored`}
             </span>
           )}
+          <button className="refresh-btn" onClick={fetchRankings} title="Refresh rankings">⟳</button>
         </div>
       </header>
 
@@ -238,6 +243,8 @@ export function RightSidebar({ selectedRegionId, onRegionSelect }: RightSidebarP
         .sidebar__subtitle { font-size: 0.75rem; color: #6b7280; }
         .sidebar__status { margin-top: 8px; }
         .status-badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 20px; font-size: 0.7rem; color: #10b981; }
+        .refresh-btn { margin-left: 8px; background: transparent; border: 1px solid rgba(255,255,255,0.04); color: #9ca3af; padding: 6px 8px; border-radius: 8px; cursor: pointer; font-weight: 700; }
+        .refresh-btn:hover { background: rgba(255,255,255,0.03); color: #f3f4f6; }
         .status-badge--running { background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.3); color: #60a5fa; animation: pulse 1.5s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
         .sidebar__tabs { display: flex; padding: 0 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
