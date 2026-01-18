@@ -219,10 +219,30 @@ class SourceDiscovery:
         
         links: List[str] = []
         keywords = {
-            SourceCategory.BUDGET: ["budget", "finance", "spending", "capital"],
-            SourceCategory.ZONING: ["zoning", "bylaw", "land-use", "planning"],
-            SourceCategory.PROPOSALS: ["proposal", "application", "development", "plan"],
-            SourceCategory.ANALYTICS: ["statistics", "demographics", "population", "growth"],
+            SourceCategory.BUDGET: [
+                "budget", "finance", "spending", "capital", "financial",
+                "expenditure", "revenue", "fiscal", "funding", "allocation",
+            ],
+            SourceCategory.ZONING: [
+                "zoning", "bylaw", "land-use", "landuse", "planning",
+                "ocp", "community-plan", "neighbourhood-plan",
+                "district", "residential", "commercial", "industrial",
+                "density", "height", "setback", "coverage", "fsr",
+                "multi-unit", "multi-family", "single-family", "housing",
+                "transit-oriented", "rezoning", "land use",
+            ],
+            SourceCategory.PROPOSALS: [
+                "proposal", "application", "development", "plan",
+                "permit", "building-permit", "development-permit",
+                "variance", "subdivision", "rezoning", "approval",
+                "current-applications", "active-development",
+                "project", "construction", "new-development",
+            ],
+            SourceCategory.ANALYTICS: [
+                "statistics", "demographics", "population", "growth",
+                "data", "report", "annual-report", "census",
+                "indicators", "trends", "analysis", "metrics",
+            ],
         }
         
         for link in soup.find_all("a", href=True):
