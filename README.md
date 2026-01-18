@@ -1,4 +1,5 @@
 # LandLock
+<img width="1756" height="987" alt="landing" src="https://github.com/user-attachments/assets/1219b2d7-ef86-43af-a687-034b20d23fbb" />
 
 LandLock is an **AI-powered land risk intelligence platform** that helps people make informed decisions about where to live, build, and insure. It pairs an interactive map-based UI with automated analysis pipelines and agent-based explanations to translate climate and wildfire exposure into **actionable financial and planning insights**.
 
