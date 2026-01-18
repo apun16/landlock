@@ -47,3 +47,8 @@ htmlcov/
 
 # Logs
 *.log
+
+# Analysis results (regenerated, don't commit)
+*_result.json
+*_result_v*.json
+*_test.json

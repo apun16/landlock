@@ -37,21 +37,38 @@ class PolicyAnalyst:
         constraints = []
         
         if proposal_facts:
+            # Count status-related facts for momentum calculation
+            status_facts = [f for f in proposal_facts if f.key == "proposal_status"]
             approved_count = sum(
-                1 for f in proposal_facts
+                1 for f in status_facts
                 if f.value and "approved" in str(f.value).lower()
             )
             pending_count = sum(
-                1 for f in proposal_facts
+                1 for f in status_facts
                 if f.value and "pending" in str(f.value).lower()
             )
+            rejected_count = sum(
+                1 for f in status_facts
+                if f.value and "rejected" in str(f.value).lower()
+            )
             
-            total_proposals = len(proposal_facts)
-            approval_rate = (approved_count / total_proposals) if total_proposals > 0 else 0
+            # Calculate momentum based on status facts if available
+            total_status_facts = approved_count + pending_count + rejected_count
+            if total_status_facts > 0:
+                # Approved = positive, pending = neutral, rejected = negative
+                approval_rate = (approved_count / total_status_facts)
+                proposal_score = int(approval_rate * 100)
+            else:
+                # If no status facts, estimate based on presence of development activity
+                permit_types = len([f for f in proposal_facts if f.key == "permit_type"])
+                project_types = len([f for f in proposal_facts if f.key == "project_type"])
+                unit_counts = len([f for f in proposal_facts if f.key == "unit_count"])
+                
+                # More activity indicators = higher momentum
+                activity_score = min((permit_types + project_types + unit_counts) * 5, 100)
+                proposal_score = activity_score if activity_score > 0 else None
             
-            proposal_score = int(approval_rate * 100) if total_proposals > 0 else None
-            
-            if pending_count > approved_count:
+            if pending_count > approved_count and total_status_facts > 0:
                 approval_friction_factors.append("More pending than approved proposals")
             
             for fact in zoning_facts:

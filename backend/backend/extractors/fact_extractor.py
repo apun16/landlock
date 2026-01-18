@@ -111,12 +111,26 @@ class FactExtractor:
             facts.extend(self._extract_budget_facts(text, region_id, citation_id))
         elif source.category == SourceCategory.ZONING:
             facts.extend(self._extract_zoning_facts(text, region_id, citation_id))
+            # Also extract proposal facts if the page has development content
+            if self._has_development_content(text):
+                facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
         elif source.category == SourceCategory.PROPOSALS:
             facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
         elif source.category == SourceCategory.ANALYTICS:
             facts.extend(self._extract_demographic_facts(text, region_id, citation_id))
         
         return facts
+    
+    def _has_development_content(self, text: str) -> bool:
+        """Check if text contains development-related content"""
+        text_lower = text.lower()
+        development_keywords = [
+            "development permit", "building permit", "variance permit",
+            "rezoning", "subdivision", "development application",
+            "permit application", "development proposal", "current applications",
+            "active development", "epermit", "e-permit",
+        ]
+        return any(kw in text_lower for kw in development_keywords)
     
     def _extract_from_pdf(
         self,
@@ -136,6 +150,9 @@ class FactExtractor:
                     facts.extend(self._extract_budget_facts(text, region_id, citation_id))
                 elif source.category == SourceCategory.ZONING:
                     facts.extend(self._extract_zoning_facts(text, region_id, citation_id))
+                    # Also extract proposal facts if the PDF has development content
+                    if self._has_development_content(text):
+                        facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
                 elif source.category == SourceCategory.PROPOSALS:
                     facts.extend(self._extract_proposal_facts(text, region_id, citation_id))
                 elif source.category == SourceCategory.ANALYTICS:
@@ -205,34 +222,198 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
-        zoning_pattern = r'\b[A-Z]{1,3}[- ]?\d+\b'
+        # Zoning code patterns (e.g., R-1, C-2, M-1, RS-1, RM-3)
+        zoning_pattern = r'\b[A-Z]{1,3}[- ]?\d+[A-Z]?\b'
         matches = re.finditer(zoning_pattern, text)
+        seen_codes = set()
         
         for match in matches:
-            fact_counter += 1
-            fact_id = f"fact_{region_id}_zoning_{fact_counter:04d}"
-            
-            facts.append(ExtractedFact(
-                id=fact_id,
-                region_id=region_id,
-                fact_type=FactType.ZONING,
-                key=f"zoning_code_{fact_counter}",
-                value=match.group(0),
-                citation_ids=[citation_id],
-            ))
-        
-        zoning_keywords = ["residential", "commercial", "industrial", "mixed-use", "density"]
-        for keyword in zoning_keywords:
-            if keyword.lower() in text.lower():
+            code = match.group(0)
+            if code not in seen_codes:
+                seen_codes.add(code)
                 fact_counter += 1
-                fact_id = f"fact_{region_id}_zoning_keyword_{fact_counter:04d}"
+                fact_id = f"fact_{region_id}_zoning_{fact_counter:04d}"
                 
                 facts.append(ExtractedFact(
                     id=fact_id,
                     region_id=region_id,
                     fact_type=FactType.ZONING,
-                    key=f"zoning_keyword_{keyword}",
+                    key="zoning_code",
+                    value=code,
+                    citation_ids=[citation_id],
+                ))
+        
+        # Zoning district/area names
+        district_patterns = [
+            r'(?:downtown|north shore|south shore|city centre|transit.oriented|neighbourhood)\s*(?:plan|area|district|zone)?',
+            r'(?:single.family|multi.family|multi.unit|duplex|triplex|fourplex|townhouse)\s*(?:residential|zone|district)?',
+            r'(?:low|medium|high)\s*density\s*(?:residential|zone|area)?',
+        ]
+        
+        for pattern in district_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                district = match.group(0).strip()
+                if len(district) > 3:
+                    fact_counter += 1
+                    fact_id = f"fact_{region_id}_zoning_district_{fact_counter:04d}"
+                    facts.append(ExtractedFact(
+                        id=fact_id,
+                        region_id=region_id,
+                        fact_type=FactType.ZONING,
+                        key="zoning_district",
+                        value=district,
+                        citation_ids=[citation_id],
+                    ))
+        
+        # Height restrictions (e.g., "12 metres", "4 storeys", "40 feet")
+        height_patterns = [
+            r'(\d+(?:\.\d+)?)\s*(?:metre|meter|m)\s*(?:height|tall|maximum)?',
+            r'(\d+)\s*(?:storey|story|stories|floors?)\s*(?:height|maximum|building)?',
+            r'(?:height|maximum)\s*(?:of|:)?\s*(\d+(?:\.\d+)?)\s*(?:m|metres?|feet|ft)?',
+        ]
+        
+        for pattern in height_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                value = match.group(1) if match.lastindex else match.group(0)
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_height_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="height_restriction",
+                    value=match.group(0).strip(),
+                    unit="metres" if "metre" in match.group(0).lower() or "m" in match.group(0).lower() else "storeys",
+                    citation_ids=[citation_id],
+                ))
+        
+        # Density/FSR (Floor Space Ratio)
+        density_patterns = [
+            r'(?:fsr|floor\s*space\s*ratio)\s*(?:of|:)?\s*(\d+(?:\.\d+)?)',
+            r'(\d+(?:\.\d+)?)\s*(?:fsr|floor\s*space\s*ratio)',
+            r'density\s*(?:of|:)?\s*(\d+(?:\.\d+)?)\s*(?:units?|dwelling|per)',
+            r'(\d+)\s*(?:units?|dwellings?)\s*per\s*(?:hectare|acre|ha)',
+        ]
+        
+        for pattern in density_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_density_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="density_regulation",
+                    value=match.group(0).strip(),
+                    citation_ids=[citation_id],
+                ))
+        
+        # Lot coverage percentages
+        coverage_patterns = [
+            r'(?:lot\s*coverage|site\s*coverage|building\s*coverage)\s*(?:of|:)?\s*(\d+(?:\.\d+)?)\s*%?',
+            r'(\d+(?:\.\d+)?)\s*%?\s*(?:lot\s*coverage|site\s*coverage|maximum\s*coverage)',
+        ]
+        
+        for pattern in coverage_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_coverage_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="lot_coverage",
+                    value=match.group(0).strip(),
+                    unit="percent",
+                    citation_ids=[citation_id],
+                ))
+        
+        # Setback requirements
+        setback_patterns = [
+            r'(?:front|rear|side|setback)\s*(?:yard|setback)?\s*(?:of|:)?\s*(\d+(?:\.\d+)?)\s*(?:m|metres?|feet|ft)?',
+            r'(\d+(?:\.\d+)?)\s*(?:m|metres?|feet|ft)\s*(?:front|rear|side)\s*(?:yard|setback)?',
+        ]
+        
+        for pattern in setback_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_setback_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="setback_requirement",
+                    value=match.group(0).strip(),
+                    citation_ids=[citation_id],
+                ))
+        
+        # Bylaw numbers
+        bylaw_patterns = [
+            r'(?:bylaw|by-law)\s*(?:no\.?|#)?\s*(\d+)',
+            r'(?:zoning\s*bylaw|land\s*use\s*bylaw)\s*(?:no\.?|#)?\s*(\d+)?',
+        ]
+        
+        for pattern in bylaw_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_bylaw_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="bylaw_reference",
+                    value=match.group(0).strip(),
+                    citation_ids=[citation_id],
+                ))
+        
+        # Land use keywords with context
+        land_use_keywords = [
+            "residential", "commercial", "industrial", "mixed-use", "mixed use",
+            "agricultural", "institutional", "recreational", "open space",
+            "transit-oriented", "transit oriented", "high density", "low density",
+            "medium density", "multi-family", "single-family", "multi-unit",
+            "small-scale", "small scale", "infill", "intensification",
+        ]
+        
+        seen_keywords = set()
+        for keyword in land_use_keywords:
+            if keyword.lower() in text.lower() and keyword.lower() not in seen_keywords:
+                seen_keywords.add(keyword.lower())
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_landuse_{fact_counter:04d}"
+                
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="land_use_type",
                     value=keyword,
+                    citation_ids=[citation_id],
+                ))
+        
+        # Parking requirements
+        parking_patterns = [
+            r'(\d+(?:\.\d+)?)\s*(?:parking\s*)?(?:stalls?|spaces?)\s*(?:per|/)\s*(?:unit|dwelling|sq\.?\s*(?:m|ft|metre|foot))',
+            r'(?:parking|stalls?|spaces?)\s*(?:requirement|required|minimum)\s*(?:of|:)?\s*(\d+(?:\.\d+)?)',
+        ]
+        
+        for pattern in parking_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_zoning_parking_{fact_counter:04d}"
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.ZONING,
+                    key="parking_requirement",
+                    value=match.group(0).strip(),
                     citation_ids=[citation_id],
                 ))
         
@@ -248,11 +429,17 @@ class FactExtractor:
         facts: List[ExtractedFact] = []
         fact_counter = 0
         
+        # Application/proposal IDs
         proposal_patterns = [
             r'application\s*#?\s*([A-Z0-9-]+)',
             r'proposal\s*#?\s*([A-Z0-9-]+)',
-            r'DP\s*([A-Z0-9-]+)',
-            r'DA\s*([A-Z0-9-]+)',
+            r'DP\s*([A-Z0-9-]+)',  # Development Permit
+            r'DA\s*([A-Z0-9-]+)',  # Development Application
+            r'DVP\s*([A-Z0-9-]+)',  # Development Variance Permit
+            r'REZ\s*([A-Z0-9-]+)',  # Rezoning
+            r'SUB\s*([A-Z0-9-]+)',  # Subdivision
+            r'OCP\s*([A-Z0-9-]+)',  # Official Community Plan amendment
+            r'BP\s*([A-Z0-9-]+)',  # Building Permit
         ]
         
         for pattern in proposal_patterns:
@@ -266,13 +453,88 @@ class FactExtractor:
                     region_id=region_id,
                     fact_type=FactType.PROPOSAL,
                     key="proposal_id",
-                    value=match.group(1) if match.lastindex else match.group(0),
+                    value=match.group(0).strip(),
                     citation_ids=[citation_id],
                 ))
         
-        status_keywords = ["approved", "pending", "under review", "rejected", "withdrawn"]
+        # Development permit types
+        permit_types = [
+            "development permit", "building permit", "variance permit",
+            "rezoning", "subdivision", "sign permit", "demolition permit",
+            "plumbing permit", "electrical permit", "minor variance",
+            "ocp amendment", "community plan amendment",
+        ]
+        
+        seen_permits = set()
+        for permit_type in permit_types:
+            if permit_type.lower() in text.lower() and permit_type.lower() not in seen_permits:
+                seen_permits.add(permit_type.lower())
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_proposal_type_{fact_counter:04d}"
+                
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.PROPOSAL,
+                    key="permit_type",
+                    value=permit_type,
+                    citation_ids=[citation_id],
+                ))
+        
+        # Development rates/statistics
+        rate_patterns = [
+            r'(\d+)\s*(?:development\s*)?(?:permits?|applications?)\s*(?:issued|approved|submitted|received)',
+            r'(?:issued|approved|submitted|received)\s*(\d+)\s*(?:development\s*)?(?:permits?|applications?)',
+            r'(\d+)\s*(?:new|total)\s*(?:units?|dwellings?|homes?)\s*(?:approved|built|constructed|permitted)',
+            r'(?:approval\s*rate|success\s*rate)\s*(?:of|:)?\s*(\d+(?:\.\d+)?)\s*%',
+            r'(\d+)\s*(?:days?|weeks?|months?)\s*(?:processing|review|approval)\s*(?:time|period)?',
+        ]
+        
+        for pattern in rate_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_proposal_rate_{fact_counter:04d}"
+                
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.PROPOSAL,
+                    key="development_rate",
+                    value=match.group(0).strip(),
+                    citation_ids=[citation_id],
+                ))
+        
+        # Development cost charges
+        dcc_patterns = [
+            r'(?:development\s*cost\s*charge|dcc)\s*(?:of|:)?\s*\$?([\d,]+(?:\.\d+)?)',
+            r'\$?([\d,]+(?:\.\d+)?)\s*(?:per\s*)?(?:development\s*cost\s*charge|dcc)',
+            r'(?:amenity\s*contribution|community\s*amenity)\s*(?:of|:)?\s*\$?([\d,]+(?:\.\d+)?)',
+        ]
+        
+        for pattern in dcc_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_proposal_dcc_{fact_counter:04d}"
+                
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.PROPOSAL,
+                    key="development_cost_charge",
+                    value=match.group(0).strip(),
+                    unit="CAD",
+                    citation_ids=[citation_id],
+                ))
+        
+        # Status keywords
+        status_keywords = ["approved", "pending", "under review", "rejected", "withdrawn", 
+                          "in progress", "complete", "conditional approval"]
+        seen_statuses = set()
         for keyword in status_keywords:
-            if keyword.lower() in text.lower():
+            if keyword.lower() in text.lower() and keyword.lower() not in seen_statuses:
+                seen_statuses.add(keyword.lower())
                 fact_counter += 1
                 fact_id = f"fact_{region_id}_proposal_status_{fact_counter:04d}"
                 
@@ -284,6 +546,55 @@ class FactExtractor:
                     value=keyword,
                     citation_ids=[citation_id],
                 ))
+        
+        # Project types/categories
+        project_types = [
+            "multi-family", "multi family", "single-family", "single family",
+            "townhouse", "apartment", "condo", "condominium", "mixed-use",
+            "commercial", "retail", "office", "industrial", "warehouse",
+            "affordable housing", "rental housing", "seniors housing",
+        ]
+        
+        seen_projects = set()
+        for project_type in project_types:
+            if project_type.lower() in text.lower() and project_type.lower() not in seen_projects:
+                seen_projects.add(project_type.lower())
+                fact_counter += 1
+                fact_id = f"fact_{region_id}_proposal_project_{fact_counter:04d}"
+                
+                facts.append(ExtractedFact(
+                    id=fact_id,
+                    region_id=region_id,
+                    fact_type=FactType.PROPOSAL,
+                    key="project_type",
+                    value=project_type,
+                    citation_ids=[citation_id],
+                ))
+        
+        # Unit counts
+        unit_patterns = [
+            r'(\d+)\s*(?:residential\s*)?(?:units?|dwellings?|suites?|apartments?)',
+            r'(\d+)\s*(?:bed|bedroom)\s*(?:units?|apartments?)?',
+            r'(\d+)\s*(?:storeys?|stories?|floors?)\s*(?:building|tower|development)?',
+        ]
+        
+        for pattern in unit_patterns:
+            matches = re.finditer(pattern, text, re.IGNORECASE)
+            for match in matches:
+                value = match.group(1)
+                # Only capture meaningful unit counts (not tiny numbers from other contexts)
+                if int(value) >= 2:
+                    fact_counter += 1
+                    fact_id = f"fact_{region_id}_proposal_units_{fact_counter:04d}"
+                    
+                    facts.append(ExtractedFact(
+                        id=fact_id,
+                        region_id=region_id,
+                        fact_type=FactType.PROPOSAL,
+                        key="unit_count",
+                        value=match.group(0).strip(),
+                        citation_ids=[citation_id],
+                    ))
         
         return facts
     

@@ -5,6 +5,7 @@ from typing import Dict, List
 from backend.config import Settings
 from backend.scraper.scraper import CityScraper
 from backend.storage.source_registry import SourceRegistry
+from backend.storage.supabase_storage import get_supabase_storage
 from backend.extractors.fact_extractor import FactExtractor
 from backend.agents.budget_analyst import BudgetAnalyst
 from backend.agents.policy_analyst import PolicyAnalyst
@@ -26,6 +27,7 @@ class PipelineRunner:
         self.budget_analyst = BudgetAnalyst()
         self.policy_analyst = PolicyAnalyst()
         self.underwriter = Underwriter()
+        self.supabase = get_supabase_storage(settings)
     
     def run_pipeline(
         self,
@@ -95,6 +97,12 @@ class PipelineRunner:
         )
         
         print(f"[Pipeline] Complete. Verdict: {underwriter_output.verdict}")
+        
+        # Store to Supabase if configured
+        if self.supabase and self.supabase.is_available:
+            print(f"[Pipeline] Storing to Supabase...")
+            self.supabase.store_analysis(output)
+        
         return output
     
     def run_from_registry(self, region_id: str) -> RegionPanelOutput:
@@ -134,10 +142,17 @@ class PipelineRunner:
                 citations
             )
         
-        return RegionPanelOutput(
+        output = RegionPanelOutput(
             region_id=region_id,
             budget_analysis=budget_output,
             policy_analysis=policy_output,
             underwriter_analysis=underwriter_output,
             generated_at=datetime.utcnow().isoformat(),
         )
+        
+        # Store to Supabase if configured
+        if self.supabase and self.supabase.is_available:
+            print(f"[Pipeline] Storing to Supabase...")
+            self.supabase.store_analysis(output)
+        
+        return output

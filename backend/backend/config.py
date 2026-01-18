@@ -18,6 +18,10 @@ class Settings(BaseSettings):
     openai_api_key: Optional[str] = None
     use_llm_mode: bool = False
     
+    supabase_url: Optional[str] = None
+    supabase_key: Optional[str] = None
+    use_supabase: bool = False
+    
     api_host: str = "0.0.0.0"
     api_port: int = 8000
     
