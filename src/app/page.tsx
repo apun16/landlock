@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Hero, Navigation, Features } from '@/components/landing';
 import { LeftSidebar } from '@/components/left-sidebar';
@@ -24,7 +24,6 @@ export default function Home() {
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(true);
   const [rightSidebarOpen, setRightSidebarOpen] = useState(true);
   const [selectedRegionId, setSelectedRegionId] = useState<string | undefined>();
-  const mapSectionRef = useRef<HTMLDivElement>(null);
 
   const handleExplore = () => {
     setIsTransitioning(true);

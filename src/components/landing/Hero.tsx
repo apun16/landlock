@@ -8,10 +8,8 @@ interface HeroProps {
 
 export function Hero({ onExplore }: HeroProps) {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight });
     };
@@ -27,7 +25,7 @@ export function Hero({ onExplore }: HeroProps) {
         <div className="hero__noise" />
       </div>
 
-      <div className={`hero__content ${isLoaded ? 'hero__content--visible' : ''}`}>
+      <div className="hero__content hero__content--visible">
         <div className="hero__badge">
           <span className="hero__badge-dot" />
           <span>AI-Powered Risk Intelligence</span>

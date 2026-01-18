@@ -121,7 +121,7 @@ export class ZoningIngestionService {
     }
   }
 
-  calculateDevelopmentIndicators(zones: ZoningRegion[], _populationData?: Map<string, number>): DevelopmentIndicators[] {
+  calculateDevelopmentIndicators(zones: ZoningRegion[]): DevelopmentIndicators[] {
     const developmentRatios: Record<ZoningCategory, number> = {
       residential_single: 0.85,
       residential_multi: 0.92,

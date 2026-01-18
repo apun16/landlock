@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 interface NavigationProps {
   onExplore: () => void;
@@ -18,13 +19,13 @@ export function Navigation({ onExplore }: NavigationProps) {
   return (
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__inner">
-        <a href="/" className="nav__logo">
+        <Link href="/" className="nav__logo">
           <svg className="nav__logo-icon" viewBox="0 0 32 32" fill="none">
             <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" strokeWidth="2" />
             <path d="M8 16L14 22L24 10" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           <span className="nav__logo-text">LandLock</span>
-        </a>
+        </Link>
 
         <div className="nav__links">
           <a href="#features" className="nav__link">Features</a>
