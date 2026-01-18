@@ -59,7 +59,7 @@ export function Hero({ onExplore }: HeroProps) {
             <div className="hero__data-row">
               <span className="hero__data-key">coverage</span>
               <span className="hero__data-dots" />
-              <span className="hero__data-val">1,647 FSA regions</span>
+              <span className="hero__data-val">1,658 FSA regions</span>
             </div>
             <div className="hero__data-row">
               <span className="hero__data-key">analysis</span>

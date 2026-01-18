@@ -229,8 +229,8 @@ export default function HazardMap({ onPostalSearch }: { onPostalSearch?: (region
     <div className="relative h-screen w-full bg-zinc-950">
       <div ref={mapContainerRef} className="absolute inset-0 z-0" />
 
-      <div className="absolute left-0 right-0 top-4 z-10 flex items-center justify-center px-6">
-          <form onSubmit={handleSearch} className="flex items-center gap-2 bg-zinc-950/80 rounded-lg p-2">
+        <div className="absolute left-0 right-0 top-4 z-10 flex items-center justify-center px-6 map-top-overlay">
+          <form onSubmit={handleSearch} className="flex items-center gap-2 bg-zinc-950/80 rounded-lg p-2 map-top-form">
             <div className="relative">
               <input
                 type="text"
@@ -412,6 +412,17 @@ export default function HazardMap({ onPostalSearch }: { onPostalSearch?: (region
         .leaflet-container {
           background: #09090b !important;
         }
+        /* Ensure zoom controls are visible and clickable above UI overlays */
+        .leaflet-control-zoom { z-index: 9999 !important; pointer-events: auto !important; }
+        .leaflet-control-zoom a { background: rgba(255,255,255,0.06); color: #fff; width: 34px; height: 34px; line-height: 34px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.4); pointer-events: auto !important; }
+        .leaflet-control-zoom a:hover { background: rgba(255,255,255,0.12); }
+        .map-top-overlay { pointer-events: none; }
+        .map-top-overlay .map-top-form { pointer-events: auto; }
+      `}</style>
+
+      <style jsx>{`
+        .zoom-btn { width: 40px; height: 36px; background: rgba(0,0,0,0.6); color: white; border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; }
+        .zoom-btn:hover { background: rgba(255,255,255,0.06); }
       `}</style>
     </div>
   );
